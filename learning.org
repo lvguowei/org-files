@@ -1,0 +1,1521 @@
+#+TAGS: ENGLISH(e) FINNISH(f)
+
+* Languages
+** Finnish
+*** FinnishPod101                                                   :FINNISH:
+    - vihannes
+    - paprika
+    - parsakaali
+    - porkkana
+    - kurkku
+    - lehtisalaatti
+    - sipuli
+    - peruna
+    - soijapapu
+    - pinaatti
+      Entered on [2014-10-06 Mon 20:28]
+*** Suomen mestari                                                  :FINNISH:
+**** Minkämaalainen sinä olet?
+     - Pedro, minkämaalainen sinä olet?
+     - Minä olen brasilialainen. Minkämaalainen sinä olet?
+     - Minä olen venäläinen. Entä Alex, mistä sina olet kotoisin?
+     - Minä olen kotoisin Etelä-Afrikkasta.
+     - Mitä kieltä sinä puhut?
+     - Minun äidinkieli on englanti. Puhun myös vähän espanjaa.
+     - Pedro, onko sinun äidinkieli espanja?
+     - Ei, minä en puhu espanjaa. Brasiliassa me puhumme portugalia.
+     - Ai niin, tietysti.
+     - Missä sinä asut?
+     - Asun Puistolassa. Se on Pohjois-Helsingissä. Menen kotiin bussilla numero 75.
+     - Minun bussi on 250. Minä en asu Helsingissä vaan Espoossa.
+     - Hei, nyt minun bussi tulee! Moi moi, nähdään huomenna!
+       Entered on [2014-10-08 Wed 23:08]
+*** Finnish                                                         :FINNISH:
+    Kuka sinä olet  Minä olen Olga
+    Kuinka vanha sinä olet Minä olen 23 vuotta vanha.
+    Milloin kurssi on Kurssi on maanantaina ja keskiviikkona.
+    Mikä päivä tänään on Tänään on maanantai.
+    Mitä kieltä sinä puhut Minä puhun italiaa.
+
+    Entered on [2014-11-08 Sat 22:09]
+*** Some random stuff                                               :FINNISH:
+    Miksi et osta jäätelöä ? Koska minä säästän rahaa.
+    Missä te asutte ? Me asumme Suomessa.
+    Mistä sinä olet kotoisin ? Olen kotoisin  Brasiliasta.
+    Mihin tämä bussi menee ? Tämä bussi menee Helsinkiin.
+
+    Entered on [2014-11-08 Sat 22:15]
+*** Some random stuff                                               :FINNISH:
+    täällä    Minä asun Helsingissä. Olen täällä kurssilla.
+    tuolla    Katso, tuolla on Pedro!
+    siellä    Mikko asuu Brasiliassa, siellä on nyt talvi.
+
+    hyvä - huono
+    kuuma - kylmä
+    vaikea - helppo
+    pieni - iso
+    uusi - vanha
+    kaunis - ruma
+    lämmin - viileä
+    valoisa - pimeä
+    paljon - vähän
+    Entered on [2014-11-09 Sun 18:51]
+*** Some random stuff                                               :FINNISH:
+    1 jäätelö
+    6 jäätelöä
+    1 pitkä mies
+    9 pitkää miestä
+    1 hyvä tietokone
+    3 hyvää tietokonetta
+
+    Julia puhuu saksaa
+    Minä rakastan Lauraa
+    Olga eitsii työpaikkaa
+    Pedro soittaa kitaraa
+    Me kastomme televisiota
+    Ymmärrätkö englantia
+    Voitko auttaa minua
+
+    Minulla ei ole autoa
+    Pedrolla ei ole kissaa
+     
+    Entered on [2014-11-19 Wed 21:56]
+*** Finnishpod101 ABS1L8                                            :FINNISH:
+
+    - Dialog
+
+      J: Tiedätkö, missä sininen mukini on?
+
+      H: Se on keittiössä.
+
+      J: Missä päin?
+
+      H: Kuivauskaapissa.
+
+      J: Siinähän se on. Kiitos.
+
+      H: Eipä kestä.
+
+    - Vocabulary
+
+      | Finnish               | English                    | Class  |
+      |-----------------------+----------------------------+--------|
+      | eipä kestä            | you're welcome             | phrase |
+      | siinä                 | there                      | adverb |
+      | kaappi                | cabinet                    | noun   |
+      | (astian)kuivauskaappi | (dish) drying cabinet      | noun   |
+      | päin                  | in the approximate area of | adverb |
+      | sininen               | blue                       | adj    |
+      | muki                  | mug                        | n      |
+      | tietää                | to known                   | v      |
+      | missä                 | where                      | adv    |
+      | keittiö               | kitchen                    | n      | 
+
+    - Sample sentences
+
+      | Finnish                            | English                              |
+      | Eipä kestä, ei siitä ollut vaivaa. | Don't mention it, it was no trouble. |
+      | Siinä se on.                       | There it is.                         |
+      | Kuivauskaappi on täynnä.           | The drying cabinet is full.          |
+      | Missä päin asut?                   | Whereabouts do you live?             |
+      | Taivas on sininen.                 | The sky is blue.                     |
+      | Muki on kaapissa.                  | The mug is in the cabinet.           |
+      | Missä olet?                        | Where are you?                       |
+      | Missä on johtaja?                  | Where is the boss?                   | 
+
+    - Grammer
+
+      - Words with only one stem
+
+        | Nominative | Partitive  | Inessive          | English     |
+        |------------+------------+-------------------+-------------|
+        | päivä      | päivä-ä    | päivä-ssä         | day         |
+        | hyvä       | hyvä-ä     | hyvä-ssä          | good        |
+        | minä       | minu-a     | minu-ssa          | I           |
+        | hauska     | hauska-a   | hauska-ssa        | fun, nice   |
+        | terve      | terve-ttä  | tervee-ssä        | healthy     |
+        | sinä       | sinu-a     | sinu-ssa          | you         |
+        | mikä       | mi-tä      | mi-ssä            | what, which |
+        | tämä       | tä-tä      | tä-ssä            | this        |
+        | se         | si-tä      | sii-nä(irregular) | it          |
+        | tuo        | tuo-ta     | tuo-ssa           | that        |
+        | lasi       | lasi-a     | lasi-ssa          | glass       |
+        | suola      | suola-a    | suola-ssa         | salt        |
+        | sokeri     | sokeri-a   | sokeri-ssa        | sugar       |
+        | tee        | tee-tä     | tee-ssä           | tea         |
+        | itse       | itse-ä     | itse-ssä          | self        |
+        | koulu      | koulu-a    | koulu-ssa         | school      |
+        | maito      | maito-a    | maido-ssa         | milk        |
+        | salaatti   | salaatti-a | salaati-ssa       | salad       |
+        | omena      | omena-a    | omena-ssa         | apple       |
+        | päärynä    | päärynä-ä  | päärynä-ssä       | pear        |
+        | piirakka   | piirakka-a | piiraka-ssa       | pie         |
+        | mustikka   | mustikka-a | mustika-ssa       | blueberry   |
+        | vihreä     | vihreä-ä   | vihreä-ssä        | green       |
+        | musta      | musta-a    | musta-ssa         | black       |
+        | kahvi      | kahvi-a    | kahvi-ssa         | coffee      |
+        | muki       | muki-a     | muki-ssa          | cup         |
+        | keittiö    | keittiö-tä | keittiö-ssä       | kitchen     |
+        | kaappi     | kaappi-a   | kaapi-ssa         | cupboard    |
+        |            |            |                   |             |
+
+      - Words with two stems
+
+	  | Nominative  | Partitive    | Inessive       | English   |
+	  |-------------+--------------+----------------+-----------|
+	  | väsynyt     | väsynyt-tä   | väsynee-ssä    | tired     |
+	  | hän         | hän-tä       | häne-ssä       | he/she    |
+	  | lautanen    | lautas-ta    | lautase-ssa    | plate     |
+	  | kuka        | ke-tä        | kene-ssä       | who       |
+	  | kiitos      | kiitos-ta    | kiitokse-ssa   | thank     |
+	  | herkullinen | herkullis-ta | herkullise-ssa | delicious |
+	  | sininen     | sinis-tä     | sinise-ssä     | blue      | 
+
+    - Usage
+
+	  The basic meaning of the inessive is "in"; that is, you are saying that there is something inside the thing that is in the inessive case.
+	 
+	  For example:
+	 
+    1. Lasi on kaapissa.
+       "/The glass is in the cabinet./"
+
+    2. Mitä tuossa sinisessä mukissa on?
+       "/What's in that blue mug?/"
+
+    3. Tässä piirakassa on omenaa ja päärynää.
+       "/There's apple and pear in this pie./"
+
+    4. Missä kaapissa lautanen on?
+       "/Which cabinet is the plate in?/"
+
+	  Vague locative meaning. Used with month names to indicate that an action takes place during that month, or something takes place at regular intervals.
+	 
+	  For example:
+	 
+    1. Liisa on puhelimessa.
+       "/Liisa is on the phone./"
+
+    2. Minussa ei ole mitään vikaa.
+       "/There's nothing wrong with me./"
+
+    3. Heinäkuussa poimin mustikoita.
+       "/In July, I pick blueberries./"
+
+    4. Omena päivässä pitää lääkärin loitolla.
+       "/An apple a day keeps the doctor away./"
+
+	  Ongoing action.
+
+	  For example:
+
+    1. Olen juuri syömässä.
+       "/I am eating just now./"
+
+    2. Olen jo menossa.
+       "/I am on my way./"
+
+	  Lastly, it can be found in certain expressions of state.
+	 
+	  For example:
+
+    1. Leipä on homeessa. (home = "mould")
+       "/The bread is mouldy./"
+
+    2. Ville on humalassa. (humala = "state of drunkenness")
+       "/Ville is drunk./"
+
+       :LOGBOOK:
+       CLOCK: [2015-09-18 Fri 21:26]--[2015-09-18 Fri 21:37] =>  0:11
+       :END:
+    [2015-09-18 Fri 21:26]
+
+*** Finnishpod101 ABS1L9                                            :FINNISH:
+**** Conversation  
+
+     H: Kuka tämä on?
+
+     E: Se on isoäiti. Isoäidin vieressä on isän veli.
+
+     H: Kuka tuo on?
+
+     E: Se on isän sisko.
+
+     H: Entä tuo?
+
+     E: Se on Lauri, isän siskon poika.
+
+**** Vocabulary
+
+     | Finnish  | English     | Class |
+     |----------+-------------+-------|
+     | poika    | son; boy    | n     |
+     | äiti     | mother      | n     |
+     | vieressä | next to     | adv   |
+     | sisko    | sister      | n     |
+     | isoäiti  | grandmother | n     |
+     | iso      | big         | adj   |
+     | isä      | father      | n     |
+     | veli     | brother     | n     | 
+
+**** Sample sentences  
+   
+     |-------------------------------------+------------------------------------|
+     | Tuo poika ostaa jäätelöä.           | That boy buys some ice cream.      |
+     | Kallen poika ui hyvin.              | Kalle's son swims well.            |
+     | Äiti on puhelimessa.                | Mother is on the phone.            |
+     | Äiti luki tyttärelleen.             | The mother read to her daughter.   |
+     | Jussi istuu Emmin vieressä.         | Jussi is sitting next to Emmi      |
+     | Jussin sisko on koulussa.           | Jussi's sister is at school.       |
+     | Minulla on sisko.                   | I have a sister.                   |
+     | Isoäiti tekee hyvää omenapiirakkaa. | Grandma makes good apple pie.      |
+     | Tiinan koira on iso.                | Tiina's dog is big                 |
+     | Juusin isä on taksinkuljettaja.     | Juusi's father is a taxi driver.   |
+     | Isä palaa kotiin.                   | The father returns home            |
+     | Emmin veli on Jussi.                | Emmi's brother is Jussi.           |
+     | Veljekset käyvät kylvyssä illalla.  | The brothers bathe in the evening. |
+   
+**** Vocabulary phrase usage
+***** ...n vieressä ("next to...")
+***** isoäiti and other family terms
+      | Finnish     | English          |
+      | tytär       | daughter         |
+      | pikkusisko  | little sister    |
+      | pikkuveli   | little brother   |
+      | setä        | father's brother |
+      | eno         | mother's brother |
+      | täti        | aunt             |
+      | serkku      | cousin           |
+      | lapsi       | child            |
+      | lapsenlapsi | grandchild       |
+      | vejenpoika  | nephew           |
+      | veljentytär | niece            |
+      | anoppi      | mother in law    |
+      | appi        | father in law    |
+      | miniä       | daughter in law  |
+      | vävy        | son in law       |
+      | äitipuoli   | stepmother       |
+
+**** Grammar
+
+***** Genitive cases
+
+      | Nominative | Stem               | Genitive  | English |
+      |------------+--------------------+-----------+---------|
+      | muki       | muki-              | muki-n    | mug     |
+      | isä        | isä-               | isä-n     | father  |
+      | väsynyt    | väsynyt-, väsynee- | väsynee-n | tired   |
+      | lautanen   | lautas-, lautase-  | lautase-n | plate   |
+      | sininen    | sinis-, sinise-    | sinise-n  | blue    | 
+
+***** k-p-t cases
+
+      -kk, -pp, -tt becomes -k, -p, and -t
+
+      | presidentti | presidenti- |
+      | salaatti    | salaati-    |
+      | piirakka    | piiraka-    |
+      | kaappi      | kaapi-      |
+
+***** -t becomes -d
+      | äiti   | äidi-  |
+      | maito  | maido- |
+      | tietää | tiedä- | 
+
+      For example:
+
+      1. Jussin muki on astiankuivauskaapissa.
+	    "/Jussi's mug is in the dish drying cabinet./"
+      2. Helen katsoo Emmin serkun kuvaa.
+	    "/Helen looks at the picture of Emmi's cousin./"
+      3. Äidin kahvi on kuumaa.
+	    "/Mother's coffee is hot./"
+      4. Tämän vihreän lasin vieressä on sininen lautanen.
+	    "/Next to shi green glass, there is a blue plate./"
+
+      [2015-09-21 Mon 21:58]
+
+*** Finnishpod101 ABS1L10                                           :FINNISH:
+**** Conversation
+     
+     E: Maiju, tässä on Helen.
+
+     M: Hei!
+
+     E: Hei! Minä olen australialainen.
+
+     M: Oletko vaihto-oppilas?
+
+     H: Kyllä. Käyn suomalaista koulua.
+
+     M: Onko suomi vaikeaa?
+
+     H: Se on kovin erilaista kuin englanti.
+
+**** Vocabulary
+
+     | Finnish         | English          | Class |
+     |-----------------+------------------+-------|
+     | käydä           | to go, to visit  | v     |
+     | suomalainen     | Finnish          | adj   |
+     | kovin           | very             | adv   |
+     | australialainen | Australian       | adj   |
+     | englantia       | English          | n     |
+     | vaihto-oppilas  | exchange student | n     |
+     | suomi           | Finnish          | n     |
+     | vaikea          | difficult        | adj   |
+     | erilainen       | different        | adj   |
+     | kuin            | than             | conj  | 
+
+**** Sample sentences
+
+     | Finnish                                       | English                                   |
+     |-----------------------------------------------+-------------------------------------------|
+     | Haluan käydä joskus Keniassa.                 | I want to visit Kenya sometime.           |
+     | Jari Litmanen on suomalainen jalkapalloilija. | Jari Litmanen is a Finnish soccer player. |
+     | Onko tämä suomalaista olutta?                 | Is this Finnish beer?                     |
+     | Kiina on kovin kaukana Suomesta.              | China is very far from Finland.           |
+     | Kenguru on australialainen eläin.             | The kangaroo is an Australian animal.     |
+     | Ville osaa puhua englantia.                   | Ville can speak English.                  |
+     | Meillä on saksalainen vaihto-oppilas.         | We have a German exchange student.        |
+     | Opiskeletko sinä suomea?                      | Do you study Finnish?                     |
+     | Tämä lautanen on erilainen kuin tuo.          | This plate is different from that one.    |
+     | Emmi on yhtä pitkä kuin Helen.                | Emmi on yhtä pitkä kuin Helen.            |
+     | Meksiko on suurempi kuin Belize.              | Mexico is bigger then Belize.             |
+
+*** Finnishpod101 ABS1L11                                           :FINNISH:
+**** Conversation
+
+     H: Millainen sää tänään on?
+     
+     J: En tiedä. Hetki, katson ennustetta.
+
+     H: Tarvitsenko sateenvarjoa?
+
+     J: Et tarvitse. Tänään ei sada.
+
+     H: Hyvä. En kaipaa sadetta.
+
+**** Vocabulary
+
+     | Finnish     | English          |
+     |-------------+------------------|
+     | tänään      | today            |
+     | hetki       | moment           |
+     | sateenvarjo | umbrella         |
+     | millainen   | what kind of     |
+     | sää         | weather          |
+     | katsoa      | look             |
+     | ennuste     | forecast         |
+     | sataa       | rain             |
+     | kaivata     | to need, to miss | 
+
+**** Sample sentences
+     | Finnish                     | English                             |
+     |-----------------------------+-------------------------------------|
+     | Olen tänään kiireinen       | I'm busy today                      |
+     | Hetki, tulen pian           | Just a moment, I'll come soon       |
+     | Saisinko tuon sateenvarjon? | May I have that umbrella, please?   |
+     | Millainen koulua Helen käy? | What kind of school does Helen go?  |
+     | Sade alkaa aamulla.         | The rain will start in the morning. |
+     | Sade putoaa kadulle.        | The rain is falling on the street.  |
+     | Eilen oli hyvä sää.         | The weather was nice yesterday.     |
+     | Maiju katsoo elokuvaa.      | Maiju is watching a movie.          |
+     | Ennuste ei lupaa hyvää.     | The forecase doesn't promise well.  |
+     | En mene ulos, siellä sataa. | I'm not going out, it's raining     |
+     | En kaipaa neuvoja           | I don't want any advice.            |
+
+*** Finnishpod101 ABS1L12
+**** Conversation
+     E: Mitä sinä harrastat?
+
+     H: Soitan kitaraa ja uin. Entä sinä?
+
+     E: Minä pelaan sählya. Minä myös luen paljon.
+
+     H: Muuten, vieläkö luet tuota kirjaa?
+
+     E: En, luin sen jo.
+
+**** Vocabulary
+
+     | Finnish   | English              |
+     |-----------+----------------------|
+     | kitara    | guitar               |
+     | uida      | swim                 |
+     | lukea     | to read              |
+     | harrastaa | to do as a hobby     |
+     | kirja     | book                 |
+     | soittaa   | to play (instrument) |
+     | pelata    | to play (sports)     |
+     | sähly     | floorball            |
+     | paljon    | much, many           |
+     | muuten    | by the way           |
+
+**** Sample sentances
+
+     | Finnish                               | English                                     |
+     |---------------------------------------+---------------------------------------------|
+     | Ostan ensi vuonna uuden kitaran       | I will buy a new guitar next year           |
+     | Monet rockmuusikot soittavat kitaraa. | Many rock musicians play the guitar         |
+     | Uin kilometrin joka lauantai.         | I swim one kilometer every Saturday         |
+     | Nainen ui altaassa.                   | The woman is swimming in the pool.          |
+     | Lähettäjän nimi lukee paketissa.      | The sender's name is stated on the package. |
+     | Isä lukee lehden aamulla.             | Dad reads the newspaper in the morning      |
+
+*** Finnishpod101 ABS1l13
+**** Conversation
+
+     E: Tule jo!
+    
+     H: Odota vähän, puen vain takin.
+
+     E: Jussi, anna tuo kirja.
+
+     J: Ole hyvä.
+
+     E: Kiitos.
+
+     J: Älä unohda huhelinta.
+
+**** Vocabulary
+     | Finnish | English           |
+     |---------+-------------------|
+     | odottaa | to wait           |
+     | vähän   | a bit             |
+     | takki   | jacket, coat      |
+     | tulla   | to come           |
+     | puhelin | telephone         |
+     | jo      | already           |
+     | pukea   | to put on clothes |
+     | vain    | only just         |
+     | antaa   | to give           |
+     | unohtaa | to forget         |
+
+**** Sample sentences
+
+     | Finnish                 | English                    |
+     |-------------------------+----------------------------|
+     | Odotan sinua puistossa. | I wil wait you in the park |
+     | Saisinko vähän teetä?   | May I have a little tea?   |
+     | Onko tämä takki lämmin? | Is this coat warm?         |
+     | Tuo puhelin ei toimi.   | That phone doesn't work    |
+     | Tulen huomenna.         | I will come tomorrow.      |
+
+*** Finnishpod101 ABS1l14
+**** Conversation
+
+     L: Helen, auttaisitko vähän?
+     
+     H: Totta kai.
+     
+     L: Pese salaatti ja laita se kulhoon.
+     
+     H: Selvä.
+     
+     L: Laita kala uuniin ja pasta kattilaan.
+     
+     H: OK.
+
+**** Vocabulary
+
+     | Finnish    | English                 |
+     |------------+-------------------------|
+     | laittaa    | to put, to prepare food |
+     | kulho      | bowl                    |
+     | uuni       | oven                    |
+     | auttaa     | to help                 |
+     | pestä      | to wash                 |
+     | selvä      | all right               |
+     | OK (ookoo) | OK                      |
+
+**** Sample sentances
+
+     | Finnish                               | English                           |
+     |---------------------------------------+-----------------------------------|
+     | Laita kattila tuohon.                 | Put the stockpot there            |
+     | Onko uuni jo kuuma?                   | Is the oven hot already?          |
+     | Laitan salaatin yleensä tähän kulhoon | I usually put salad in this bowl. |
+     | Voinko auttaa?                        | May I help you?                   |
+     | OK, tulen ihan pian.                  | OK, I will come in a minute.      |
+     | Menen nyt syömään.                    | I am off to eat now.              |
+
+*** Finnishpod101 ABS1l15
+**** Conversation
+     L: Kala on valmis. Ota se pois uunista.
+     
+     H: Selvä.
+
+     L: kaada pastakattilasta vesi pois.
+
+     H: Selvä.
+
+     L: Ota maito ja voi jääkaapista. Hae sitten Emmi ja Jussi yläkerrasta.
+**** Vocabulary
+
+     | en        | fi                    |
+     |-----------+-----------------------|
+     | jääkaappi | fridge                |
+     | voi       | butter                |
+     | sitten    | then                  |
+     | hakea     | to fetch, to pick up  |
+     | yläkerta  | upstairs              |
+     | vesi      | water                 |
+     | pois      | away, off             |
+     | kaataa    | to pour, to turn over |
+
+**** Sample sentences
+     | fi                                   | en                                                 |
+     |--------------------------------------+----------------------------------------------------|
+     | Ota salaatti jääkaapista.            | Take the saland from the fridge.                   |
+     | Voi on kovaa.                        | The butter is hard.                                |
+     | Käy kaupassa ja laita sitten ruokaa. | Go to the grocery store and then prepare the meal. |
+     | Haenko Kaisan koulusta?              | Shall I pick up Kaisa from school?                 |
+     | Emmi on yläkerrassa.                 | Emmi is upstairs.                                  |
+     | Vesi on kylmää.                      | The water is cold.                                 |
+     | Nainen juo vettä.                    | The woman drinks water.                            |
+     | Mene pois!                           | Go away!                                           |
+*** FinnishPod101 ABS1l16
+**** Conversation
+     J: Haenko videovuokraamosta jonkin elokuvan?
+
+     E: Hyvä ajatus. Minä käyn samalla kirjastossa.
+
+     J: Helen, tuletko mukaan videovuokraamoon ja kirjastoon?
+
+     H: Mielelläni.
+
+**** Vocabulary
+     | fi             | en                                |
+     |----------------+-----------------------------------|
+     | mukaan         | along                             |
+     | mielelläni     | I'd love to                       |
+     | elokuva        | movie                             |
+     | ajatus         | thought, idea                     |
+     | videovuokraamo | video rental store                |
+     | jokin          | some                              |
+     | samalla        | on the same way, at the same time |
+     | kirjasto       | bookstore                         |
+
+**** Sample sentances
+     | fi                                 | en                                          |
+     |------------------------------------+---------------------------------------------|
+     | Tuletko mukaan elokuviin?          | Would you like to come along to the movies? |
+     | Katsoisin mielelläni tuon elokuvan | I would like to watch that movie            |
+     | Sehän on loistava ajatus!          | That's a brilliant idea                     |
+     | Etsitkö jotakin?                   | Are you looking for something?              |
+     | Tuletko mukaan kauppaan?           | Will you come along to the store?           |
+     | Tuletko mukaan puistoon?           | Will you come along to the park?            |
+
+*** FinnishPod101 ABS1l17
+**** Conversation
+     E: Mitä sanot tästä?
+
+     J: Minä en pidä romantiikasta. Minä pidän enemmän toiminnasta.
+
+     H: Minä pidän komediasta.
+
+     E: Entä käykö tämä sitten?
+
+     H: se sopii hyvin.
+
+     J: Kelpaa.
+**** Vocabulary
+
+     | fi          | en                |
+     |-------------+-------------------|
+     | romantiikka | romance           |
+     | enemmän     | more              |
+     | toiminta    | action, activity  |
+     | komedia     | comedy            |
+     | sopia       | to suit to fit    |
+     | kelvata     | to be good enough |
+     | sanoa       | to say            |
+     | pitää       | to like           |
+
+**** Sample sentences
+     | fi                                        | en                                   |
+     |-------------------------------------------+--------------------------------------|
+     | Minä pidän romantiikasta                  | I like romance                       |
+     | Pidätkö enemmän sählystä vai jääkiekosta? | Do you prefer floorball or ice hocky |
+     | Tämä on loistava komedia                  | This is a brilliant comedy           |
+     | Älä sano mitään                           | Don't say anything                   |
+     | Pidätkö mustasta kahvista?                | Do you like black coffee             |
+     | Minä en pidä tästä elokuvasta             | I don't like this movie              |
+     | Minä pidän Tomista                        | I like Tomi                          |
+     | Jussi pitää toiminnasta                   | Jussi likes action                   |
+     | Mistä Emmi pitää?                         | What does Emmi like                  |
+
+*** FinnishPod101 ABS118
+**** Conversation
+     E: Onko kaikki valmista?
+
+     H: Karkkipussi on pöydällä.
+
+     E: Missä DVD on?
+
+     H: Tuolilla.
+
+     E: Entä kaukosäädin?
+
+     H: Se on sohvalla.
+**** Vocabulary
+
+     | fi          | en                |
+     |-------------+-------------------|
+     | tuoli       | chair             |
+     | kaukosäädin | remote controller |
+     | sohva       | sofa              |
+     | pussi       | bag               |
+     | pöytä       | table             |
+     | kaikki      | everything        |
+
+**** Sample Sentences
+     | fi                               | en                              |
+     |----------------------------------+---------------------------------|
+     | Vuokraan tämän DVD:n             | I'll rent this DVD              |
+     | Jussi istuu tuolilla             | Jussi is sitting on the chair   |
+     | Haluaisin pussin karkkia, kiitos | I'd like a bag of candy please  |
+     | Kukkamaljakko on pöydällä.       | The flower vase is on the table |
+     | En pidä tästä pöydästä.          | I don't like this table         |
+     | Ymmärrätkö kaiken?               | Do you understand everything?   |
+
+*** FinnishPod101 ABS119
+**** Conversation
+     E: Onko sinulla yhtään veljeä tai siskoa?
+
+     H: Minulla on yksi sisko.
+
+     E: Onko hän saman näköinen kuin sinä?
+
+     H: Jonkin verran, mutta minulla on ruskeat hiukset ja hänellä punaiset. Hänellä on myös vihreät silmät.
+
+**** Vocabulary
+
+     | fi            | en                                            |
+     |---------------+-----------------------------------------------|
+     | sama          | same                                          |
+     | näköinen      | looking                                       |
+     | ruskea        | brown                                         |
+     | yhtään        | any (used in questions or negative sentences) |
+     | silmä         | eye                                           |
+     | yksi          | one                                           |
+     | kuin          | than                                          |
+     | jonkin verran | somewhat                                      |
+     | hius          | hair                                          |
+     | punainen      | red                                           |
+
+**** Sample sentences
+     | fi                                       | en                                    |
+     |------------------------------------------+---------------------------------------|
+     | Onko tämä väri sama kuin tuo?            | Is this color the same as that one?   |
+     | Liisa on iloisen näköinen.               | Liisa looks happy                     |
+     | Emmi käyttää ruskeaa takkia.             | Minulla ei ole yhtään rahaa.          |
+     | Minulla on siniset silmät.               | I have blue eyes                      |
+     | Minulla on yksi omena.                   | I have one apple                      |
+     | Kulhossa on vielä jonkin verran sokeria. | There's still some sugar in the bowl. |
+     | Kyllä, puhun jonkin verran.              | Yes, I speak somewhat.                |
+     | Petrillä on mustat hiukset.              | Perti has black hair.                 |
+*** FinnishPod101 ABS1120
+**** Conversation
+     E: Onko sinulla mitään eläimiä?
+
+     H: Ei, mutta siskolla on akvaariokaloja. Ja isoisällä on koiria.
+
+     E: Millaisia koiria hänellä on?
+
+     H: Sekarotuisia ja todella suloisia.
+
+**** Vocabulary
+     | fi           | en                                             |
+     |--------------+------------------------------------------------|
+     | sekarotuinen | mixed-breed                                    |
+     | rotu         | breed, race                                    |
+     | todella      | really                                         |
+     | suloinen     | cute                                           |
+     | akvaariokala | aquarium fish                                  |
+     | koira        | dog                                            |
+     | mitään       | any, anything, nothing (in negative sentences) |
+     | eläin        | animal                                         |
+
+**** Sample sentences
+     | fi                                | en                      |
+     |-----------------------------------+-------------------------|
+     | Tuo koira on sekarotuinen         | Tha dog is mixd-breed   |
+     | Hänellä on todella tummat hiukset | He has really dark hair |
+     | Minä rakastan koiria              | I love dogs             |
+     | En tarvitse mitään                | I don't need anything   |
+
+     | partitive singular | partitive plural | English      |
+     |--------------------+------------------+--------------|
+     | eläin-tä           | eläim-i-ä        | animal       |
+     | kala-a             | kalo-j-a         | fish         |
+     | koira-a            | koir-i-a         | dog          |
+     | millais-ta         | millais-i-a      | what kind of |
+     | sulois-ta          | sulois-i-a       | cute         |
+     | lasi-a             | lase-j-a         | glass        |
+     | kaappi-a           | kaappe-j-a       | cabinet      |
+*** TODO Finntastic Spoken Finnish
+    https://finntastic.teachable.com
+    [2020-05-25 ma 00:02]
+**** Basic Finnish Phrases
+     Nice to meet you! = hauska tavata!
+
+     Welcome! = tervetuloa! 
+
+     Long time no see! = pitkästä aikaa!
+
+     Cheers! = kippis!
+
+     Excuse me/sorry = anteeks(I)
+
+     Thanks! = kiitos!/kiitti!
+
+
+
+     No problem! = ole hyvä / ei(pä) kestä! / eipä mitään!
+
+     Here you are = ole hyvä
+
+     Let’s go! = mennään! / läh(d)etään!
+
+     Good luck! = onnea! / tsemppiä!
+
+     Yes/yea = kyllä/joo.
+
+     No = ei.
+
+
+
+     Can you say that again, please? = voitko/voikko sanoa (sen) uudelleen?
+
+     Can you speak a bit slower? = voitko/voikko puhua hieman hitaammin?
+
+     How is this said Finnish? = miten tää sanotaan suomeks(I)? 
+
+     I speak a bit of Finnish. = puhun vähän suomee/suomea. 
+
+     Don’t know. = en tiiä/en tiedä. 
+**** Saying Hello Bye
+     Moi
+
+     Moikka
+
+     Moro (tampere)
+
+     Terve
+
+
+
+     Morjesta (guys)
+
+     Morjes (guys)
+
+     Heippa (a bit childish)
+
+     Huomenta = good morning
+
+
+
+     Päivää = good day / hello (a bit formal)
+
+     Iltaa = good evening (a bit formal)
+
+     Hyvää huomenta/päivää/iltaa  more formal
+
+     Hyvää = good
+
+
+
+     Moi moi! = bye bye!
+
+     Nähdään! = see you!
+
+     Moikka = bye!
+
+     Morjes! (guys)
+
+     Note the pitch, similar to English
+**** Saying How Are You
+     Questions:
+
+     Mitä(s) kuuluu? = how are you?
+     Miten/mites menee? = how’s it going?
+     Kuis hurisee? = what’s up?
+     Mitäs lauri? = what’s up lauri?
+     Mitä(s) mies? = what’s up man? (guys often say this)
+     There are more colloquial ways to say this.
+     Replies:
+
+     Kiitos hyvää/hyvin = thanks I’m good
+     Ihan hyvää/hyvin = pretty good
+     Ihan jees = pretty good
+     Eipä kummempia = not bad
+     Ihan ok (ookoo) = I’m ok 
+     
+     Return the question:
+
+     Entä sulle? = how about you?
+
+     Entä sä? = how about you?
+
+     Mites sä? = what about you?
+
+     Note the (grammatically correct) reply:
+
+     Mitä kuuluu? ==> hyvää
+     Miten menee? ==> hyvin
+     More replies:
+
+     Entä sulle? = how about you?
+     Entä sä? = how about you?
+     Mites sä? = what about you?
+**** BE word
+     Mä oon = I am
+     Sä oot = You are
+     Se on = He/She/It is
+     Me ollaan = We are
+     Te ootte = You (p) are
+     Ne on = They are
+
+     Summary:
+
+     In Finnish verbs conjugate in persons
+     only one word for he/she: hän
+     Hän (he/she) is used for people
+     se (it)& is used for inanimate objects
+     ne (they) can be used for both people & objects
+     Important things to keep in mind for spoken Finnish
+
+     Se is commonly used to refer to a person even if they are used for inanimate stuff in standard
+     The verb in we (2nd person plural) form is used in its PASSIVE FORM (we are passive)
+     Ex. me olemme (standard) vs. me ollaan (spoken)
+     3rd person plural (they) is used in 3rd person singular form
+     (ex. Ne ovat (standard) vs ne on (spoken)
+* Android
+** [20/20] Android Multithreading Masterclass
+   - [X] Memory Leaks in Android
+   - [X] Thread termination
+     - Thread termination strategies:
+       1. Return from ~run~ after successful execution
+       2. Return from ~run~ in response to internal error
+       3. Return from ~run~ in response to externally set flags
+       4. Return from ~run~ in response to interruption (not recommended, favor 3)
+   - [X] UI thread vs background thread in Android
+   - [X] Demonstration of UI thread
+   - [X] User interface responsiveness
+   - [X] Protection of User Interface from Background threads
+   - [X] Execution of the code on UI thread
+   - [X] Handler and Looper Intuiation
+     Only use handler and looper to access UI thread
+   - [X] Introduction to multithreading challenges
+   - [X] Visibility
+   - [X] Atomicity
+   - [X] Volatile variables
+   - [X] Atomic Classes
+   - [X] Threads Synchronization
+   - [X] Immutability
+   - [X] Happens Before
+     +https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html+ this is not readable at all
+   - [X] Happens Before Demonstration
+   - [X] Exercise 4
+   - [X] Exercise 4 Solution
+   - [X] Exercise 4 solution amendament
+
+** TODO [33/93] CustomView bilibili course
+   - [X] 高级面试题讲解-1.flv
+   - [X] 设计模式（责任链模式）-1.flv
+   - [X] 自定义属性的一些细节-1.flv
+   - [X] 昨日内容回顾-1.flv
+   - [X] onMeasure()实战测量-1.flv
+   - [X] onDraw()方法基线计算-1.flv
+   - [X] 高级面试题讲解-1.flv
+   - [X] 效果实现思路分析-1.flv
+   - [X] 绘制最外层的大圆弧-1.flv
+   - [X] 功能效果完善-1.flv
+   - [X] 功能测试及动画加载-1.flv
+   - [X] invalidate()源码分析-1.flv
+   - [X] WX朋友圈过度渲染优化-1.flv
+   - [X] 字体变色效果分析-1.flv
+   - [X] 实现一个文字两种颜色-1.flv
+   - [X] 增加不同朝向的方法-1.flv
+   - [X] 下周任务布置-1.flv
+   +- [ ] 打造炫酷的进度条-（效果实现分析）-1.flv+
+   +- [ ] 打造炫酷的进度条-（画进度内圆）-1.flv+
+   +- [ ] 打造炫酷的进度条-（画外圆弧和文字）-1.flv+
+   +- [ ] 打造炫酷的进度条-（最后的测试）-1.flv++
+   - [X] 仿58同城数据加载-（形状切换效果实现）-1.flv
+   - [X] 效果实现分析-1.flv
+   - [X] 初始化显示评分控件-1.flv
+   - [X] 触摸交互和内存优化-1.flv
+   - [X] onTouch()源码分析-1.flv
+   - [X] 效果实现分析
+   - [X] 绘制26个字母-1.flv
+   - [X] 接口回掉和优化-1.flv
+   - [X] 面试题介绍-1.flv
+   - [X] WindowManagerImpl绘制流程入口-1.flv
+   - [X] 第一步measure()源码分析-1.flv
+   - [X] View的绘制流程-1.flv
+   - [X] 根据源码思考和优化-1.flv
+   - [X] onMeausre()测量和onLayout()摆放-1.flv
+   - [X] 最后的测试和任务布置-1.flv
+   - [X] Adapter设计模式讲解-1.flv
+   - [ ] 自定义View和ViewGroup的套路总结-1.flv
+   - [ ] View的Touch事件分发-1.flv
+   - [ ] 事件拦截作业讲解-1.flv
+   - [ ] View绘制流程回顾-1.flv
+   - [ ] 实现QQ6.0侧滑效果-1.flv
+   - [ ] ViewDragHelper使用介绍-1.flv
+   - [ ] 列表菜单效果实现-1.flv
+   - [ ] Touch事件分发实战-1.flv
+   - [ ] 初始化九宫格显示-1.flv
+   - [ ] 处理onTouch事件-1.flv
+   - [ ] 绘制连线和箭头三角-1.flv
+   - [ ] kotlin九宫格回顾-1.flv
+   - [ ] 基本控件介绍-(RecyclerView，DrawerLayout)-1.flv
+   - [ ] CoordinatorLayout和Behavior介绍-1.flv
+   - [ ] 给状态栏设置颜色-1.flv
+   - [ ] 设置状态栏为透明-1.flv
+   - [ ] 昨日遗留问题解决-1.flv
+   - [ ] CoordinatorLayout和Behavior介绍-1.flv
+   - [ ] 自定义Behavior-1.flv
+   - [ ] 视频项目介绍-1.flv
+   - [ ] 系统架构和六大基本原则-1.flv
+   - [ ] 侧滑拖动删除-1.flv
+   - [ ] CoordinatorLayout源码分析-1.flv
+   - [ ] Behavior的工作原理-1.flv
+   - [ ] SnackBar源码分析-1.flv
+   - [ ] 属性动画介绍-1.flv
+   - [ ] 动画效果实现分析-1.flv
+   - [ ] 性能优化-1.flv
+   - [ ] 效果实现分析-1 (2).flv
+   - [ ] Adapter设计模式适配-1.flv
+   - [ ] 菜单动画实现-1.flv
+   - [ ] 观察者设计模式讲解-1.flv
+   - [ ] 花束直播加载动画分析和实现-1.flv
+   - [ ] 绘制两个圆-1.flv
+   - [ ] 贝塞尔曲线介绍-1.flv
+   - [ ] 绘制贝塞尔曲线-1.flv
+   - [ ] 效果演示和分析-1.flv
+   - [ ] 整合贝塞尔曲线-1.flv
+   - [ ] 消息回弹和爆炸-1.flv
+   - [ ] 添加点赞图片-1.flv
+   - [ ] 自定义贝塞尔Evaluator-1.flv
+   - [ ] 确定贝塞尔的控制点-1.flv
+   - [ ] 效果和性能优化-1.flv
+   - [ ] 效果演示和分析
+   - [ ] 拦截View的创建-1.flv
+   - [ ] 解析自定义属性-1.flv
+   - [ ] 监听滑动改变位置-1.flv
+   - [ ] 效果分析和实现-1.flv
+   - [ ] 实现旋转动画-1.flv
+   - [ ] 实现聚合和扩散-1.flv
+   - [ ] PhoneWindow的创建过程-1.flv
+   - [ ] 布局的测量和绘制过程-1.flv
+   - [ ] 窗口与WindowManagerService服务的连接过程-1.flv
+   - [ ] 内存泄漏和内存抖动-1.flv
+   - [ ] 自定义View代码优化-1.flv
+   - [ ] UI渲染与界面卡顿-1.flv
+   - [ ] 资源和布局适配-1.flv
+   - [ ] 图片适配-1.flv
+   - [ ] 适配进度条动画-1.flv
+   - [ ] 实现爆炸扩散动画-1.flv
+** TODO MotionLayout
+   - [ ] Simple transition tutorial https://www.youtube.com/watch?v=T6029TkohgU&t=656s
+** TODO Blog posts
+   - [ ] https://zsmb.co
+* Programming Languages
+** Clojure
+*** Vectors as Stacks
+ #+BEGIN_SRC clojure
+   (def stack [1 2 3 4])
+   (peek stack)   ;; peek
+   (pop stack)    ;; pop
+   (conj stack 5) ;; push
+ #+END_SRC
+
+ #+BEGIN_SRC clojure
+   (defn my-map [f coll]
+     (loop [coll coll acc []]
+       (if (empty? coll)
+         acc
+         (recur (next coll)
+                (conj acc (f (first coll)))))))
+   (my-map #(+ % 1) [1 2 3 4])
+ #+END_SRC
+
+
+ #+RESULTS:
+ : #'user/my-map[2 3 4 5]
+*** Finding positions of items in a sequence
+    #+BEGIN_SRC clojure
+      (defn index [coll]
+        (cond
+           (map? coll) (seq coll)
+           (set? coll) (map vector coll coll)
+           :else (map vector (iterate inc 0) coll)))
+
+      (defn pos [pred coll]
+        (for [[i v] (index coll) :when (pred v)] i))
+      (pos #(= % 3) [1 4 5 6 3 2 5 3 9 8 3])
+      (pos #(= % 4) {:a 1 :b 2 :c 3 :d 4})
+      (pos #(= % :k) #{:a :b :k :e})
+    #+END_SRC
+
+    #+RESULTS:
+    : #'user/index#'user/pos(4 7 10)(:d)(:k)
+
+
+ * Books
+*** Higher Order Functions
+    #+BEGIN_SRC clojure
+      (def plays [{:band "Burial" :plays 979 :loved 9}
+                  {:band "Eno" :plays 2333 :loved 15}
+                  {:band "Bill Evans" :plays 979 :loved 9}
+                  {:band "Magma" :plays 2665 :loved 31}])
+
+    #+END_SRC
+
+    #+RESULTS:
+    : #'user/plays
+
+    Sort by plays / loved ratio
+
+    #+BEGIN_SRC clojure
+      (sort-by #(/ (:plays %) (:loved %)) plays)
+    #+END_SRC
+
+#+RESULTS:
+| :band | Magma      | :plays | 2665 | :loved | 31 |
+| :band | Burial     | :plays |  979 | :loved |  9 |
+| :band | Bill Evans | :plays |  979 | :loved |  9 |
+| :band | Eno        | :plays | 2333 | :loved | 15 |
+
+** Kotlin
+*** Higher order function
+    Function type:
+    #+BEGIN_SRC kotlin
+      val sum: (Int, Int) -> Int = { a, b -> a + b }
+      val action: () -> Unit = { println("hello") }
+      action.invoke()
+      sum(1, 2)
+    #+END_SRC
+
+    #+RESULTS:
+    : hello
+    : res0: kotlin.Int = 3
+    : res1: kotlin.String = >>>                                                                                                                                 
+    
+    Passing function into function:
+    #+BEGIN_SRC kotlin :results output
+      fun String.filter(predicate: (Char) -> Boolean): String {
+          val sb = StringBuilder()
+          for (index in 0 until length) {
+              val element = get(index)
+              if (predicate(element)) sb.append(element)
+          }
+          return sb.toString()
+      }
+      println("ab1c".filter { it in 'a'..'z'})
+    #+END_SRC
+
+    #+RESULTS:
+    : abc
+    : res23: kotlin.String = >>> 
+    
+    Original version of =joinToString=:
+    #+BEGIN_SRC kotlin
+      fun <T> Collection<T>.joinToString(
+          separator: String = ", ",
+          prefix: String = "",
+          postfix: String = ""
+      ): String {
+          val result = StringBuilder(prefix)
+          for ((index, element) in this.withIndex()) {
+              if (index > 0) result.append(separator)
+              result.append(element)
+          }
+          result.append(postfix)
+          return result.toString()
+      }
+      listOf(1, 2, 3).joinToString()
+    #+END_SRC
+
+    #+RESULTS:
+    : res26: kotlin.String = 1, 2, 3
+    : res27: kotlin.String = >>> 
+
+    Version that controls how to convert each element to String:
+    #+BEGIN_SRC kotlin
+      fun <T> Collection<T>.joinToString(
+          separator: String = ", ",
+          prefix: String = "",
+          postfix: String = "",
+          transform: (T) -> String = { it.toString() }
+      ): String {
+          val result = StringBuilder(prefix)
+          for ((index, element) in this.withIndex()) {
+              if (index > 0) result.append(separator)
+              result.append(transform(element))
+          }
+          result.append(postfix)
+          return result.toString()
+      }
+      listOf(1, 2, 3).joinToString(transform={ "$it*" })
+    #+END_SRC
+
+    #+RESULTS:
+    : res28: kotlin.String = 1*, 2*, 3*
+    : res29: kotlin.String = >>> 
+*** DSL
+    #+BEGIN_SRC kotlin
+      import java.time.*
+
+      enum class Tense {
+          AGO, FROM_NOW
+      }
+
+      infix fun Int.days(tense: Tense): LocalDateTime {
+          return when(tense) {
+              Tense.AGO -> LocalDateTime.now().minusDays(this.toLong())
+              Tense.FROM_NOW -> LocalDateTime.now().plusDays(this.toLong())
+              else -> LocalDateTime.now()
+          }
+      }
+
+      println(2 days Tense.AGO)
+      println(2 days Tense.FROM_NOW)
+    #+END_SRC
+
+    #+RESULTS:
+    : 2020-06-25T16:04:21.315
+    : 2020-06-29T16:04:21.315
+    : res25: kotlin.String = >>> 
+
+
+    #+BEGIN_SRC kotlin
+      fun call(greet: String.(String) -> Unit) {
+          "hello".greet("Guowei")
+      }
+
+      call { name -> println("$this $name") }
+    #+END_SRC
+
+    #+RESULTS:
+    : hello Guowei
+    : res3: kotlin.String = >>> 
+
+    #+BEGIN_SRC kotlin
+      "planning" meeting {
+          start at 3..15
+      }
+
+      class Meeting(val name: String) {
+          val start = this
+
+          infix fun at(time: IntRange) {
+              println("Starts at $time")
+          }
+      }
+
+      infix fun String.meeting(block: Meeting.() -> Unit): Meeting {
+          val meeting = Meeting(this)
+          meeting.block()
+          return meeting
+      }
+    #+END_SRC
+
+    #+RESULTS:
+    : res7: kotlin.String = >>> 
+
+    #+BEGIN_SRC kotlin
+      class Robot {
+          val left = "left"
+          val right = "right"
+          val fast = "fast"
+
+          infix fun turns(direction: String) {
+              println("Turns $direction")
+          }
+
+          infix fun runs(speed: String) {
+              println("Runs $speed")
+          }
+      }
+
+      fun operate(block: Robot.(Robot) -> Unit) {
+          val robot = Robot()
+          robot.block(robot)
+      }
+
+      operate {
+           it turns left
+           it turns right
+           it runs fast
+      }
+
+    #+END_SRC
+
+    #+RESULTS:
+    : Turns left
+    : Turns right
+    : Runs fast
+    : res3: kotlin.String = >>> 
+
+*** DSL Builder
+    #+BEGIN_SRC kotlin
+      @DslMarker annotation class PersonDSL
+
+
+      data class Person(val name: String, val age: Int, val address: Address)
+      data class Address(val postalCode: String, val city: String, val street: String)
+
+      @PersonDSL
+      class AddressBuilder {
+        private var postalCode = ""
+        private var city = ""
+        private var street = ""
+
+        fun postalCode(block: () -> String) {
+          this.postalCode = block()
+        }
+
+        fun city(block: () -> String) {
+          this.city = block()
+        }
+
+        fun street(block: () -> String) {
+          this.street = block()
+        }
+
+        fun build(): Address {
+          return Address(postalCode, city, street)
+        }
+      }
+
+      fun address(block: AddressBuilder.() -> Unit): Address {
+        return AddressBuilder().apply(block).build()
+      }
+
+      @PersonDSL
+      class PersonBuilder {
+        private var name = ""
+        private var age = 0;
+        private var address = Address("", "", "")
+
+        fun name(block: () -> String) {
+          this.name = block()
+        }
+
+        fun age(block: () -> Int) {
+          this.age = block()
+        }
+
+        fun address(block: AddressBuilder.() -> Unit) {
+          this.address = AddressBuilder().apply(block).build()
+        }
+
+        fun build(): Person {
+          return Person(name, age, address)
+        }
+      }
+
+      fun person(block: PersonBuilder.() -> Unit): Person {
+        return PersonBuilder().apply(block).build()
+      }
+
+
+      val person = person {
+          name { "Guowei Lv" }
+          age { 18 }
+          address {
+              postalCode { "00890" }
+              street { "Hamentie" }
+              city { "Helsinki" }
+
+          }
+      }
+
+      print(person)
+    #+END_SRC
+
+    #+RESULTS:
+    : Person(name=Guowei Lv, age=18, address=Address(postalCode=00890, city=Helsinki, street=Hamentie))res9: kotlin.String = >>> 
+
+** C++
+*** C++ VIP
+**** Project 10
+     #+BEGIN_SRC cpp
+       #include <iostream>
+       #include <string>
+
+       using namespace std;
+
+       class Human {
+       public:
+         Human();
+         Human(int age, int salary, string name);
+         Human(const Human &other);
+         void eat();
+         void sleep();
+         string getName();
+         int getAge();
+         int getSalary();
+
+       private:
+         string name;
+         int age;
+         int salary;
+       };
+
+       Human::Human() {
+         name = "Anonymous";
+         age = 0;
+         salary = 0;
+       }
+
+       Human::Human(int age, int salary, string name) {
+         this -> age = age;
+         this -> salary = salary;
+         this -> name = name;
+       }
+
+       // Copy constructor
+       Human::Human(const Human &other) {
+         cout << "Copy constructor called" << "\n";
+
+         name = other.name;
+         salary = other.salary;
+         age = other.age;
+       }
+
+       void Human::eat() {
+         cout << "Eating" << "\n";
+       }
+
+       void Human::sleep() {
+         cout << "Sleeping" << "\n";
+       }
+
+       int Human::getAge() {
+         return age;
+       }
+
+       string Human::getName() {
+         return name;
+       }
+
+       int Human::getSalary() {
+         return salary;
+       }
+
+       void showHuman(Human human) {
+         cout << human.getName() << "\n";
+       }
+
+       int main(int argc, char *argv[])
+       {
+         Human h;
+         cout << h.getName() << "\n";
+         cout << h.getAge() << "\n";
+         cout << h.getSalary() << "\n";
+
+         Human h2(30, 1000, "Guowei");
+         cout << h2.getName() << "\n";
+         cout << h2.getAge() << "\n";
+         cout << h2.getSalary() << "\n";
+
+         Human h3 = h2;
+         Human h4(h3);
+
+         showHuman(h4);
+         return 0;
+       }
+     #+END_SRC
+
+     #+RESULTS:
+     | Anonymous |             |        |
+     | 0         |             |        |
+     | 0         |             |        |
+     | Guowei    |             |        |
+     | 30        |             |        |
+     | 1000      |             |        |
+     | Copy      | constructor | called |
+     | Copy      | constructor | called |
+     | Copy      | constructor | called |
+     | Guowei    |             |        |
+
+* Programming Books
+*** [1/1] Read GoF Design Patterns Cover to Cover
+    - [X] Chapter 1
+    - [ ] Chapter 2
+*** Land of Lisp
+**** Text Advanture Game
+    Describing locations.
+    #+BEGIN_SRC lisp :results raw
+      (defparameter *nodes* '((living-room
+                               (you are in the living room. a wizard is snoring loudly on the couch.))
+                              (garden
+                               (you are in the beautiful garden. there is a well in front of you.))
+                              (attic
+                               (you are in the attic. there is a giant welding torch in the corner.))))
+      (defun describe-location (location nodes)
+        (cadr (assoc location nodes)))
+    #+END_SRC
+
+    #+RESULTS:
+    DESCRIBE-LOCATION
+
+    *nodes* is called association list, or /alist/ in short.
+    #+BEGIN_SRC lisp :results raw
+      (assoc 'garden *nodes*)
+    #+END_SRC
+
+    #+RESULTS:
+    (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
+
+
+
+    Describing paths.
+    #+BEGIN_SRC lisp :results raw
+      (defparameter *edges* '((living-room
+                                (garden west door)
+                                (attic upstairs ladder))
+                               (garden
+                                (living-room east door))
+                               (attic
+                                (living-room downstairs ladder))))
+
+      (defun describe-path (edge)
+        `(there is a ,(caddr edge) going ,(cadr edge) from here.))
+
+      (defun describe-paths (location edges)
+        (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+
+      (describe-paths 'living-room *edges*)
+    #+END_SRC
+
+    #+RESULTS:
+    (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
+     HERE.)
+    
+    Describing Objects at Specific Location
+    
+    #+BEGIN_SRC lisp
+      (defparameter *objects* '(whisky bucket frog chain))
+
+      (defparameter *object-locations* '((whisky living-room)
+                                         (bucket living-room)
+                                         (chain garden)
+                                         (frog garden)))
+
+      (defun objects-at (loc objs obj-locs)
+        (labels ((at-loc-p (obj)
+                   (eq (cadr (assoc obj obj-locs)) loc)))
+          (remove-if-not #'at-loc-p objs)))
+
+      (objects-at 'living-room *objects* *object-locations*)
+    #+END_SRC
+
+    #+RESULTS:
+    | WHISKY | BUCKET |
