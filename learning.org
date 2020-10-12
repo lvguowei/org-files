@@ -1714,6 +1714,27 @@
                       (list-of-values (rest-operands exps) env))))
         #+END_SRC
 
+        *Ex4.1*
+        #+NAME: list-of-values-left-to-right
+        #+BEGIN_SRC scheme
+          (define (list-of-values exps env)
+            (if (no-operands? exps)
+                '()
+                (let* ((left (eval (first-operand exps) env))
+                       (right (list-of-values (rest-operands exps) env)))
+                  (cons left right))))
+        #+END_SRC
+
+        #+NAME: list-of-values-right-to-left
+        #+BEGIN_SRC scheme
+          (define (list-of-values exps env)
+            (if (no-operands? exps)
+                '()
+                (let* ((right (list-of-values (rest-operands exps) env))
+                       (left (eval (first-operand exps) env)))
+                  (cons left right))))
+        #+END_SRC
+
 ******* Conditionals
         =Eval-if= evaluates the predicate part of an =if= expression in the given environment.
         If the result is true, =eval-if= evaluates the consequent, otherwise it evaluates the alternative:
@@ -2287,7 +2308,7 @@
          <<eval>>
          <<apply-in-underlying-scheme>>
          <<apply>>
-         <<list-of-values>>
+         <<list-of-values-right-to-left>>
          <<eval-if>>
          <<eval-sequence>>
          <<eval-assignment>>
@@ -2317,6 +2338,7 @@
          <<primitive-procedures>>
          <<apply-primitive-procedure>>
          <<driver-loop>>
+         <<run>>
        #+END_SRC
 
 *** Computer Systems: A Programmer's Perspective
