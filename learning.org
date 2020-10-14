@@ -1674,6 +1674,54 @@
         In most Lisp implementations, dispatching on the type of an expression is done in a data-directed style.
         This allows a user to add new types of expressions that =eval= can distinguish, without modifying the definition of =eval= itself.
 
+******** Exercise 4.2
+         #+begin_quote
+         Louis Reasoner plans to reorder the cond clauses in eval so that the clause
+         for procedure applications appears before the clause for assignments.
+         He argues that this will make the interpreter more efficient:
+         Since programs usually contain more applications than assignments, definitions, and so on,
+         his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
+         #+end_quote
+
+         #+NAME: eval-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((quoted? exp) (text-of-quotation exp))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   ((assignment? exp) (eval-assignment exp env))
+                   ((definition? exp) (eval-definition exp env))
+                   ((if? exp) (eval-if exp env))
+                   ((lambda? exp)
+                    (make-procedure (lambda-parameters exp)
+                                    (lambda-body exp)
+                                    env))
+                   ((begin? exp)
+                    (eval-sequence (begin-actions exp) env))
+                   ((cond? exp) (eval (cond->if exp) env))
+
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+         #+END_SRC
+
+         #+NAME: procedure-application-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (application? exp) (tagged-list? exp 'call))
+
+           (define (operator exp) (cadr exp))
+
+           (define (operands exp) (cddr exp))
+
+           (define (no-operands? ops) (null? ops))
+
+           (define (first-operand ops) (car ops))
+
+           (define (rest-operands ops) (cdr ops))
+         #+END_SRC
+
 ******* Apply
         =Apply= takes two arguments, a procedure and a list of arguments to which the procedure should be applied.
         =Apply= classifies procedures into two kinds: It calls =apply-primitive-procedure= to apply primitives;
@@ -2305,10 +2353,10 @@
 ****** source code
        #+NAME: metacircularevaluator
        #+BEGIN_SRC scheme :tangle metacircular.scm :noweb yes
-         <<eval>>
+         <<eval-ex-4.2>>
          <<apply-in-underlying-scheme>>
          <<apply>>
-         <<list-of-values-right-to-left>>
+         <<list-of-values>>
          <<eval-if>>
          <<eval-sequence>>
          <<eval-assignment>>
@@ -2323,7 +2371,7 @@
          <<if-conditionals>>
          <<begin>>
          <<sequence->exp>>
-         <<procedure-application>>
+         <<procedure-application-ex-4.2>>
          <<cond>>
          <<testing-of-predicates>>
          <<procedures>>
