@@ -1608,11 +1608,11 @@
     | WHISKY | BUCKET |
 *** SICP
 **** Data-directed programming example: Complex number
-***** Multiple representations
-****** Two representations:
+***** Naive approach
+****** Two representations of complex numbers
        1. As a pair of =real-part= and =imag-part=
        2. As a pair of =magnitude= and =angle=
-****** The selectors and constructors of the abstract complex number.
+****** Selectors and constructors of complex number
        #+BEGIN_SRC scheme
          ;; Selectors:
          (real-part z)
@@ -1624,7 +1624,7 @@
          (make-from-real-imag real imag)
          (make-from-mag-ang magnitude angle)
        #+END_SRC
-****** Arithmetic operations on complex numbers based on the selectors and constructors.
+****** Arithmetic operations on complex numbers based on the selectors and constructors
        #+NAME: operations
        #+BEGIN_SRC scheme
          (define (add-complex z1 z2)
@@ -1643,7 +1643,7 @@
            (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
                               (- (angle z1) (angle z2))))
           #+END_SRC
-****** Implementations of selectors that supports both representations.
+****** Implementations of selectors that supports both representations
        #+NAME: selectors
        #+BEGIN_SRC scheme
          (define (real-part z)
@@ -1674,7 +1674,7 @@
                   (angle-polar (contents z)))
                  (else (error "Unknown type -- ANGLE" z))))
        #+END_SRC
-****** Predicate functions for recognizing rectangular and polar.
+****** Predicates for recognizing rectangular and polar types using tags
        #+NAME: predicates
        #+BEGIN_SRC scheme
          (define (rectangular? z)
@@ -1682,7 +1682,7 @@
          (define (polar? z)
            (eq? (type-tag z) 'polar))
        #+END_SRC
-****** Selectors and constructors for rectangular.
+****** Selectors and constructors for rectangular type
        #+NAME: rectangular-selectors-and-constructors
        #+BEGIN_SRC scheme
          (define (real-part-rectangular z) (car z))
@@ -1696,7 +1696,7 @@
          (define (make-from-real-imag-rectangular x y)
            (attach-tag 'rectangular (cons x y)))
        #+END_SRC
-****** Selectors and constructors for polar.
+****** Selectors and constructors for polar type
        #+NAME: polar-selectors-and-constructors
        #+BEGIN_SRC scheme
          (define (real-part-polar z)
@@ -1708,7 +1708,7 @@
          (define (make-from-mag-ang-polar r a)
            (attach-tag 'polar (cons r a)))
        #+END_SRC
-****** Tag functions.
+****** Tag functions
        #+NAME: tag-functions
        #+BEGIN_SRC scheme
          (define (attach-tag type-tag contents)
@@ -1722,7 +1722,7 @@
                (cdr datum)
                (error "Bad tagged datum -- CONTENTS" datum)))
        #+END_SRC
-****** Reasonable implementations of constructors.
+****** Reasonable implementations of constructors
        #+NAME: constructors
        #+BEGIN_SRC scheme
          (define (make-from-real-imag x y)
