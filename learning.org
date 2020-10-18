@@ -1609,147 +1609,138 @@
 *** SICP
 **** Data-directed programming example: Complex number
 ***** Multiple representations
-      Two representations:
-      1. As a pair of =real-part= and =imag-part=
-      2. As a pair of =magnitude= and =angle=
+****** Two representations:
+       1. As a pair of =real-part= and =imag-part=
+       2. As a pair of =magnitude= and =angle=
+****** The selectors and constructors of the abstract complex number.
+       #+BEGIN_SRC scheme
+         ;; Selectors:
+         (real-part z)
+         (imag-part z)
+         (magnitude z)
+         (angle z)
 
-      The selectors and constructors of the abstract complex number.
-      #+BEGIN_SRC scheme
-        ;; Selectors:
-        (real-part z)
-        (imag-part z)
-        (magnitude z)
-        (angle z)
-
-        ;; Constructors
-        (make-from-real-imag real imag)
-        (make-from-mag-ang magnitude angle)
-      #+END_SRC
-
-      Arithmetic operations on complex numbers based on the selectors and constructors.
-      #+NAME: operations
-      #+BEGIN_SRC scheme
-        (define (add-complex z1 z2)
-          (make-from-real-imag (+ (real-part z1) (real-part z2))
-                               (+ (imag-part z1) (imag-part z2))))
-
-        (define (sub-complex z1 z2)
-          (make-from-real-imag (- (real-part z1) (real-part z2))
-                               (- (imag-part z1) (imag-part z2))))
-
-        (define (mul-complex z1 z2)
-          (make-from-mag-ang (* (magnitude z1) (magnitude z2))
-                             (+ (angle z1) (angle z2))))
-
-        (define (div-complex z1 z2)
-          (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
-                             (- (angle z1) (angle z2))))
-         #+END_SRC
-
-      Implementations of selectors that supports both representations.
-      #+NAME: selectors
-      #+BEGIN_SRC scheme
-        (define (real-part z)
-          (cond ((rectangular? z) 
-                 (real-part-rectangular (contents z)))
-                ((polar? z)
-                 (real-part-polar (contents z)))
-                (else (error "Unknown type -- REAL-PART" z))))
-
-        (define (imag-part z)
-          (cond ((rectangular? z)
-                 (imag-part-rectangular (contents z)))
-                ((polar? z)
-                 (imag-part-polar (contents z)))
-                (else (error "Unknown type -- IMAG-PART" z))))
-
-        (define (magnitude z)
-          (cond ((rectangular? z)
-                 (magnitude-rectangular (contents z)))
-                ((polar? z)
-                 (magnitude-polar (contents z)))
-                (else (error "Unknown type -- MAGNITUDE" z))))
-
-        (define (angle z)
-          (cond ((rectangular? z)
-                 (angle-rectangular (contents z)))
-                ((polar? z)
-                 (angle-polar (contents z)))
-                (else (error "Unknown type -- ANGLE" z))))
-      #+END_SRC
-
-      Predicate functions for recognizing rectangular and polar.
-      #+NAME: predicates
-      #+BEGIN_SRC scheme
-        (define (rectangular? z)
-          (eq? (type-tag z) 'rectangular))
-        (define (polar? z)
-          (eq? (type-tag z) 'polar))
-      #+END_SRC
-
-      Selectors and constructors for rectangular.
-      #+NAME: rectangular-selectors-and-constructors
-      #+BEGIN_SRC scheme
-        (define (real-part-rectangular z) (car z))
-        (define (imag-part-rectangular z) (cdr z))
-        (define (magnitude-rectangular z)
-          (sqrt (+ (square (real-part-rectangular z))
-                   (square (imag-part-rectangular z)))))
-        (define (angle-rectangular z)
-          (atan (imag-part-rectangular z)
-                (real-part-rectangular z)))
-        (define (make-from-real-imag-rectangular x y)
-          (attach-tag 'rectangular (cons x y)))
-      #+END_SRC
-
-      Selectors and constructors for polar.
-      #+NAME: polar-selectors-and-constructors
-      #+BEGIN_SRC scheme
-        (define (real-part-polar z)
-          (* (magnitude-polar z) (cos (angle-polar z))))
-        (define (imag-part-polar z)
-          (* (magnitude-polar z) (sin (angle-polar z))))
-        (define (magnitude-polar z) (car z))
-        (define (angle-polar z) (cdr z))
-        (define (make-from-mag-ang-polar r a)
-          (attach-tag 'polar (cons r a)))
-      #+END_SRC
-
-      Tag functions.
-      #+NAME: tag-functions
-      #+BEGIN_SRC scheme
-        (define (attach-tag type-tag contents)
-          (cons type-tag contents))
-        (define (type-tag datum)
-          (if (pair? datum)
-              (car datum)
-              (error "Bad tagged datum -- TYPE-TAG" datum)))
-        (define (contents datum)
-          (if (pair? datum)
-              (cdr datum)
-              (error "Bad tagged datum -- CONTENTS" datum)))
-      #+END_SRC
-
-      Reasonable implementations of constructors.
-      #+NAME: constructors
-      #+BEGIN_SRC scheme
-        (define (make-from-real-imag x y)
-          (make-from-real-imag-rectangular x y))
-        (define (make-from-mag-ang r a)
-          (make-from-mag-ang-polar r a))
-      #+END_SRC
-
-       #+NAME: complex_numbers
-       #+BEGIN_SRC scheme :tangle complex_numbers.scm :noweb yes
-         <<operations>>
-         <<selectors>>
-         <<predicates>>
-         <<rectangular-selectors-and-constructors>>
-         <<polar-selectors-and-constructors>>
-         <<tag-functions>>
-         <<constructors>>
+         ;; Constructors
+         (make-from-real-imag real imag)
+         (make-from-mag-ang magnitude angle)
        #+END_SRC
-     
+****** Arithmetic operations on complex numbers based on the selectors and constructors.
+       #+NAME: operations
+       #+BEGIN_SRC scheme
+         (define (add-complex z1 z2)
+           (make-from-real-imag (+ (real-part z1) (real-part z2))
+                                (+ (imag-part z1) (imag-part z2))))
+
+         (define (sub-complex z1 z2)
+           (make-from-real-imag (- (real-part z1) (real-part z2))
+                                (- (imag-part z1) (imag-part z2))))
+
+         (define (mul-complex z1 z2)
+           (make-from-mag-ang (* (magnitude z1) (magnitude z2))
+                              (+ (angle z1) (angle z2))))
+
+         (define (div-complex z1 z2)
+           (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
+                              (- (angle z1) (angle z2))))
+          #+END_SRC
+****** Implementations of selectors that supports both representations.
+       #+NAME: selectors
+       #+BEGIN_SRC scheme
+         (define (real-part z)
+           (cond ((rectangular? z) 
+                  (real-part-rectangular (contents z)))
+                 ((polar? z)
+                  (real-part-polar (contents z)))
+                 (else (error "Unknown type -- REAL-PART" z))))
+
+         (define (imag-part z)
+           (cond ((rectangular? z)
+                  (imag-part-rectangular (contents z)))
+                 ((polar? z)
+                  (imag-part-polar (contents z)))
+                 (else (error "Unknown type -- IMAG-PART" z))))
+
+         (define (magnitude z)
+           (cond ((rectangular? z)
+                  (magnitude-rectangular (contents z)))
+                 ((polar? z)
+                  (magnitude-polar (contents z)))
+                 (else (error "Unknown type -- MAGNITUDE" z))))
+
+         (define (angle z)
+           (cond ((rectangular? z)
+                  (angle-rectangular (contents z)))
+                 ((polar? z)
+                  (angle-polar (contents z)))
+                 (else (error "Unknown type -- ANGLE" z))))
+       #+END_SRC
+****** Predicate functions for recognizing rectangular and polar.
+       #+NAME: predicates
+       #+BEGIN_SRC scheme
+         (define (rectangular? z)
+           (eq? (type-tag z) 'rectangular))
+         (define (polar? z)
+           (eq? (type-tag z) 'polar))
+       #+END_SRC
+****** Selectors and constructors for rectangular.
+       #+NAME: rectangular-selectors-and-constructors
+       #+BEGIN_SRC scheme
+         (define (real-part-rectangular z) (car z))
+         (define (imag-part-rectangular z) (cdr z))
+         (define (magnitude-rectangular z)
+           (sqrt (+ (square (real-part-rectangular z))
+                    (square (imag-part-rectangular z)))))
+         (define (angle-rectangular z)
+           (atan (imag-part-rectangular z)
+                 (real-part-rectangular z)))
+         (define (make-from-real-imag-rectangular x y)
+           (attach-tag 'rectangular (cons x y)))
+       #+END_SRC
+****** Selectors and constructors for polar.
+       #+NAME: polar-selectors-and-constructors
+       #+BEGIN_SRC scheme
+         (define (real-part-polar z)
+           (* (magnitude-polar z) (cos (angle-polar z))))
+         (define (imag-part-polar z)
+           (* (magnitude-polar z) (sin (angle-polar z))))
+         (define (magnitude-polar z) (car z))
+         (define (angle-polar z) (cdr z))
+         (define (make-from-mag-ang-polar r a)
+           (attach-tag 'polar (cons r a)))
+       #+END_SRC
+****** Tag functions.
+       #+NAME: tag-functions
+       #+BEGIN_SRC scheme
+         (define (attach-tag type-tag contents)
+           (cons type-tag contents))
+         (define (type-tag datum)
+           (if (pair? datum)
+               (car datum)
+               (error "Bad tagged datum -- TYPE-TAG" datum)))
+         (define (contents datum)
+           (if (pair? datum)
+               (cdr datum)
+               (error "Bad tagged datum -- CONTENTS" datum)))
+       #+END_SRC
+****** Reasonable implementations of constructors.
+       #+NAME: constructors
+       #+BEGIN_SRC scheme
+         (define (make-from-real-imag x y)
+           (make-from-real-imag-rectangular x y))
+         (define (make-from-mag-ang r a)
+           (make-from-mag-ang-polar r a))
+       #+END_SRC
+****** Source Code
+        #+NAME: complex_numbers
+        #+BEGIN_SRC scheme :tangle complex_numbers.scm :noweb yes
+          <<operations>>
+          <<selectors>>
+          <<predicates>>
+          <<rectangular-selectors-and-constructors>>
+          <<polar-selectors-and-constructors>>
+          <<tag-functions>>
+          <<constructors>>
+        #+END_SRC
 **** 4.1 
 ***** The Metacircular Evaluator
 ****** The Core of the Evaluator
