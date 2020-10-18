@@ -1607,7 +1607,7 @@
     #+RESULTS:
     | WHISKY | BUCKET |
 *** SICP
-**** Data-directed programming example: Complex number
+**** Data-directed programming example: complex number system
 ***** Naive approach
 ****** Two representations of complex numbers
        1. As a pair of =real-part= and =imag-part=
