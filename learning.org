@@ -1973,84 +1973,6 @@
         In most Lisp implementations, dispatching on the type of an expression is done in a data-directed style.
         This allows a user to add new types of expressions that =eval= can distinguish, without modifying the definition of =eval= itself.
 
-******** Exercise 4.2
-         #+begin_quote
-         Louis Reasoner plans to reorder the cond clauses in eval so that the clause
-         for procedure applications appears before the clause for assignments.
-         He argues that this will make the interpreter more efficient:
-         Since programs usually contain more applications than assignments, definitions, and so on,
-         his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
-         #+end_quote
-
-         #+NAME: eval-ex-4.2
-         #+BEGIN_SRC scheme
-           (define (eval exp env)
-             (cond ((self-evaluating? exp) exp)
-                   ((variable? exp) (lookup-variable-value exp env))
-                   ((quoted? exp) (text-of-quotation exp))
-                   ((application? exp)
-                    (apply (eval (operator exp) env)
-                           (list-of-values (operands exp) env)))
-                   ((assignment? exp) (eval-assignment exp env))
-                   ((definition? exp) (eval-definition exp env))
-                   ((if? exp) (eval-if exp env))
-                   ((lambda? exp)
-                    (make-procedure (lambda-parameters exp)
-                                    (lambda-body exp)
-                                    env))
-                   ((begin? exp)
-                    (eval-sequence (begin-actions exp) env))
-                   ((cond? exp) (eval (cond->if exp) env))
-
-                   (else
-                    (error "Unknown expression type -- EVAL" exp))))
-         #+END_SRC
-
-         #+NAME: procedure-application-ex-4.2
-         #+BEGIN_SRC scheme
-           (define (application? exp) (tagged-list? exp 'call))
-
-           (define (operator exp) (cadr exp))
-
-           (define (operands exp) (cddr exp))
-
-           (define (no-operands? ops) (null? ops))
-
-           (define (first-operand ops) (car ops))
-
-           (define (rest-operands ops) (cdr ops))
-         #+END_SRC
-
-******** Exercise 4.3
-         #+begin_quote
-         Rewrite eval so that the dispatch is done in data-directed style.
-         Compare this with the data-directed differentiation procedure of exercise 2.73.
-         (You may use the car of a compound expression as the type of the expression, as is appropriate for the syntax implemented in this section.) 
-         #+end_quote
-         
-         #+NAME: eval-ex-4.3
-         #+BEGIN_SRC scheme
-           (define (eval exp env)
-             (cond ((self-evaluating? exp) exp)
-                   ((variable? exp) (lookup-variable-value exp env))
-                   ((get 'eval (car exp)) ((get 'eval (car exp)) exp env))
-                   ((application? exp)
-                    (apply (eval (operator exp) env)
-                           (list-of-values (operands exp) env)))
-                   (else
-                    (error "Unknown expression type -- EVAL" exp))))
-
-           (put 'eval 'quote text-of-quotation)
-           (put 'eval 'set! eval-assignment)
-           (put 'eval 'define eval-definition)
-           (put 'eval 'if eval-if)
-           (put 'eval 'lambda (lambda (x y)
-                                (make-procedure (lambda-parameters x) (lambda-body x) y)))
-           (put 'eval 'begin (lambda (x y)
-                               (eval-sequence (begin-sequence x) y)))
-           (put 'eval 'cond (lambda (x y)
-                              (evaln (cond->if x) y)))
-         #+END_SRC
 ******* Apply
         =Apply= takes two arguments, a procedure and a list of arguments to which the procedure should be applied.
         =Apply= classifies procedures into two kinds: It calls =apply-primitive-procedure= to apply primitives;
@@ -2168,6 +2090,85 @@
         #+END_SRC
 
         We have chosen here to return the symbol =ok= as the value of an assignment or a definition.
+******** Exercise 4.2
+         #+begin_quote
+         Louis Reasoner plans to reorder the cond clauses in eval so that the clause
+         for procedure applications appears before the clause for assignments.
+         He argues that this will make the interpreter more efficient:
+         Since programs usually contain more applications than assignments, definitions, and so on,
+         his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
+         #+end_quote
+
+         #+NAME: eval-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((quoted? exp) (text-of-quotation exp))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   ((assignment? exp) (eval-assignment exp env))
+                   ((definition? exp) (eval-definition exp env))
+                   ((if? exp) (eval-if exp env))
+                   ((lambda? exp)
+                    (make-procedure (lambda-parameters exp)
+                                    (lambda-body exp)
+                                    env))
+                   ((begin? exp)
+                    (eval-sequence (begin-actions exp) env))
+                   ((cond? exp) (eval (cond->if exp) env))
+
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+         #+END_SRC
+
+         #+NAME: procedure-application-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (application? exp) (tagged-list? exp 'call))
+
+           (define (operator exp) (cadr exp))
+
+           (define (operands exp) (cddr exp))
+
+           (define (no-operands? ops) (null? ops))
+
+           (define (first-operand ops) (car ops))
+
+           (define (rest-operands ops) (cdr ops))
+         #+END_SRC
+
+
+******** Exercise 4.3
+         #+begin_quote
+         Rewrite eval so that the dispatch is done in data-directed style.
+         Compare this with the data-directed differentiation procedure of exercise 2.73.
+         (You may use the car of a compound expression as the type of the expression, as is appropriate for the syntax implemented in this section.) 
+         #+end_quote
+         
+         #+NAME: eval-ex-4.3
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((get 'eval (car exp)) ((get 'eval (car exp)) exp env))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+
+           (put 'eval 'quote text-of-quotation)
+           (put 'eval 'set! eval-assignment)
+           (put 'eval 'define eval-definition)
+           (put 'eval 'if eval-if)
+           (put 'eval 'lambda (lambda (x y)
+                                (make-procedure (lambda-parameters x) (lambda-body x) y)))
+           (put 'eval 'begin (lambda (x y)
+                               (eval-sequence (begin-sequence x) y)))
+           (put 'eval 'cond (lambda (x y)
+                              (evaln (cond->if x) y)))
+         #+END_SRC
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
