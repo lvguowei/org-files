@@ -922,7 +922,7 @@
    - [X] Exercise 4 Solution
    - [X] Exercise 4 solution amendament
 
-** TODO [34/93] CustomView bilibili course
+** TODO [35/93] CustomView bilibili course
    - [X] 高级面试题讲解-1.flv
    - [X] 设计模式（责任链模式）-1.flv
    - [X] 自定义属性的一些细节-1.flv
@@ -961,7 +961,7 @@
    - [X] 最后的测试和任务布置-1.flv
    - [X] Adapter设计模式讲解-1.flv
    - [X] 自定义View和ViewGroup的套路总结-1.flv
-   - [ ] View的Touch事件分发-1.flv
+   - [X] View的Touch事件分发-1.flv
    - [ ] 事件拦截作业讲解-1.flv
    - [ ] View绘制流程回顾-1.flv
    - [ ] 实现QQ6.0侧滑效果-1.flv
@@ -1061,33 +1061,33 @@
 * Programming Languages
 ** Clojure
 *** Vectors as Stacks
- #+BEGIN_SRC clojure
-   (def stack [1 2 3 4])
-   (peek stack)   ;; peek
-   (pop stack)    ;; pop
-   (conj stack 5) ;; push
- #+END_SRC
+    #+BEGIN_SRC clojure
+      (def stack [1 2 3 4])
+      (peek stack)   ;; peek
+      (pop stack)    ;; pop
+      (conj stack 5) ;; push
+    #+END_SRC
 
- #+BEGIN_SRC clojure
-   (defn my-map [f coll]
-     (loop [coll coll acc []]
-       (if (empty? coll)
-         acc
-         (recur (next coll)
-                (conj acc (f (first coll)))))))
-   (my-map #(+ % 1) [1 2 3 4])
- #+END_SRC
+    #+BEGIN_SRC clojure
+      (defn my-map [f coll]
+        (loop [coll coll acc []]
+          (if (empty? coll)
+            acc
+            (recur (next coll)
+                   (conj acc (f (first coll)))))))
+      (my-map #(+ % 1) [1 2 3 4])
+    #+END_SRC
 
 
- #+RESULTS:
- : #'user/my-map[2 3 4 5]
+    #+RESULTS:
+    : #'user/my-map[2 3 4 5]
 *** Finding positions of items in a sequence
     #+BEGIN_SRC clojure
       (defn index [coll]
         (cond
-           (map? coll) (seq coll)
-           (set? coll) (map vector coll coll)
-           :else (map vector (iterate inc 0) coll)))
+          (map? coll) (seq coll)
+          (set? coll) (map vector coll coll)
+          :else (map vector (iterate inc 0) coll)))
 
       (defn pos [pred coll]
         (for [[i v] (index coll) :when (pred v)] i))
@@ -1100,7 +1100,7 @@
     : #'user/index#'user/pos(4 7 10)(:d)(:k)
 
 
- * Books
+    * Books
 *** Higher Order Functions
     #+BEGIN_SRC clojure
       (def plays [{:band "Burial" :plays 979 :loved 9}
@@ -1119,11 +1119,11 @@
       (sort-by #(/ (:plays %) (:loved %)) plays)
     #+END_SRC
 
-#+RESULTS:
-| :band | Magma      | :plays | 2665 | :loved | 31 |
-| :band | Burial     | :plays |  979 | :loved |  9 |
-| :band | Bill Evans | :plays |  979 | :loved |  9 |
-| :band | Eno        | :plays | 2333 | :loved | 15 |
+    #+RESULTS:
+    | :band | Magma      | :plays | 2665 | :loved | 31 |
+    | :band | Burial     | :plays |  979 | :loved |  9 |
+    | :band | Bill Evans | :plays |  979 | :loved |  9 |
+    | :band | Eno        | :plays | 2333 | :loved | 15 |
 
 ** Kotlin
 *** Higher order function
@@ -1283,9 +1283,9 @@
       }
 
       operate {
-           it turns left
-           it turns right
-           it runs fast
+          it turns left
+          it turns right
+          it runs fast
       }
 
     #+END_SRC
@@ -1306,56 +1306,56 @@
 
       @PersonDSL
       class AddressBuilder {
-        private var postalCode = ""
-        private var city = ""
-        private var street = ""
+          private var postalCode = ""
+          private var city = ""
+          private var street = ""
 
-        fun postalCode(block: () -> String) {
-          this.postalCode = block()
-        }
+          fun postalCode(block: () -> String) {
+              this.postalCode = block()
+          }
 
-        fun city(block: () -> String) {
-          this.city = block()
-        }
+          fun city(block: () -> String) {
+              this.city = block()
+          }
 
-        fun street(block: () -> String) {
-          this.street = block()
-        }
+          fun street(block: () -> String) {
+              this.street = block()
+          }
 
-        fun build(): Address {
-          return Address(postalCode, city, street)
-        }
+          fun build(): Address {
+              return Address(postalCode, city, street)
+          }
       }
 
       fun address(block: AddressBuilder.() -> Unit): Address {
-        return AddressBuilder().apply(block).build()
+          return AddressBuilder().apply(block).build()
       }
 
       @PersonDSL
       class PersonBuilder {
-        private var name = ""
-        private var age = 0;
-        private var address = Address("", "", "")
+          private var name = ""
+          private var age = 0;
+          private var address = Address("", "", "")
 
-        fun name(block: () -> String) {
-          this.name = block()
-        }
+          fun name(block: () -> String) {
+              this.name = block()
+          }
 
-        fun age(block: () -> Int) {
-          this.age = block()
-        }
+          fun age(block: () -> Int) {
+              this.age = block()
+          }
 
-        fun address(block: AddressBuilder.() -> Unit) {
-          this.address = AddressBuilder().apply(block).build()
-        }
+          fun address(block: AddressBuilder.() -> Unit) {
+              this.address = AddressBuilder().apply(block).build()
+          }
 
-        fun build(): Person {
-          return Person(name, age, address)
-        }
+          fun build(): Person {
+              return Person(name, age, address)
+          }
       }
 
       fun person(block: PersonBuilder.() -> Unit): Person {
-        return PersonBuilder().apply(block).build()
+          return PersonBuilder().apply(block).build()
       }
 
 
@@ -1575,31 +1575,31 @@
       CLOSED: [2020-08-29 la 21:26]
 *** Land of Lisp
 **** Text Advanture Game
-    Describing locations.
-    #+BEGIN_SRC lisp :results raw
-      (defparameter *nodes* '((living-room
-                               (you are in the living room. a wizard is snoring loudly on the couch.))
-                              (garden
-                               (you are in the beautiful garden. there is a well in front of you.))
-                              (attic
-                               (you are in the attic. there is a giant welding torch in the corner.))))
-      (defun describe-location (location nodes)
-        (cadr (assoc location nodes)))
-    #+END_SRC
+     Describing locations.
+     #+BEGIN_SRC lisp :results raw
+       (defparameter *nodes* '((living-room
+                                (you are in the living room. a wizard is snoring loudly on the couch.))
+                               (garden
+                                (you are in the beautiful garden. there is a well in front of you.))
+                               (attic
+                                (you are in the attic. there is a giant welding torch in the corner.))))
+       (defun describe-location (location nodes)
+         (cadr (assoc location nodes)))
+     #+END_SRC
 
-    *nodes* is called association list, or /alist/ in short.
-    #+BEGIN_SRC lisp :results raw
-      (assoc 'garden *nodes*)
-    #+END_SRC
+     *nodes* is called association list, or /alist/ in short.
+     #+BEGIN_SRC lisp :results raw
+       (assoc 'garden *nodes*)
+     #+END_SRC
 
-    #+RESULTS:
-    (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
+     #+RESULTS:
+     (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
 
 
 
-    Describing paths.
-    #+BEGIN_SRC lisp :results raw
-      (defparameter *edges* '((living-room
+     Describing paths.
+     #+BEGIN_SRC lisp :results raw
+       (defparameter *edges* '((living-room
                                 (garden west door)
                                 (attic upstairs ladder))
                                (garden
@@ -1607,40 +1607,339 @@
                                (attic
                                 (living-room downstairs ladder))))
 
-      (defun describe-path (edge)
-        `(there is a ,(caddr edge) going ,(cadr edge) from here.))
+       (defun describe-path (edge)
+         `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
-      (defun describe-paths (location edges)
-        (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+       (defun describe-paths (location edges)
+         (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
 
-      (describe-paths 'living-room *edges*)
-    #+END_SRC
+       (describe-paths 'living-room *edges*)
+     #+END_SRC
 
-    #+RESULTS:
-    (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
+     #+RESULTS:
+     (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
      HERE.)
     
-    Describing Objects at Specific Location
+     Describing Objects at Specific Location
     
-    #+BEGIN_SRC lisp
-      (defparameter *objects* '(whisky bucket frog chain))
+     #+BEGIN_SRC lisp
+       (defparameter *objects* '(whisky bucket frog chain))
 
-      (defparameter *object-locations* '((whisky living-room)
-                                         (bucket living-room)
-                                         (chain garden)
-                                         (frog garden)))
+       (defparameter *object-locations* '((whisky living-room)
+                                          (bucket living-room)
+                                          (chain garden)
+                                          (frog garden)))
 
-      (defun objects-at (loc objs obj-locs)
-        (labels ((at-loc-p (obj)
-                   (eq (cadr (assoc obj obj-locs)) loc)))
-          (remove-if-not #'at-loc-p objs)))
+       (defun objects-at (loc objs obj-locs)
+         (labels ((at-loc-p (obj)
+                    (eq (cadr (assoc obj obj-locs)) loc)))
+           (remove-if-not #'at-loc-p objs)))
 
-      (objects-at 'living-room *objects* *object-locations*)
-    #+END_SRC
+       (objects-at 'living-room *objects* *object-locations*)
+     #+END_SRC
 
-    #+RESULTS:
-    | WHISKY | BUCKET |
+     #+RESULTS:
+     | WHISKY | BUCKET |
 *** SICP
+**** Data-directed programming example: complex number system
+***** Naive approach
+****** Two representations of complex numbers
+       1. As a pair of =real-part= and =imag-part=
+       2. As a pair of =magnitude= and =angle=
+****** Selectors and constructors of complex number
+       #+BEGIN_SRC scheme
+         ;; Selectors:
+         (real-part z)
+         (imag-part z)
+         (magnitude z)
+         (angle z)
+
+         ;; Constructors
+         (make-from-real-imag real imag)
+         (make-from-mag-ang magnitude angle)
+       #+END_SRC
+****** Arithmetic operations on complex numbers based on the selectors and constructors
+       #+NAME: operations
+       #+BEGIN_SRC scheme
+         (define (add-complex z1 z2)
+           (make-from-real-imag (+ (real-part z1) (real-part z2))
+                                (+ (imag-part z1) (imag-part z2))))
+
+         (define (sub-complex z1 z2)
+           (make-from-real-imag (- (real-part z1) (real-part z2))
+                                (- (imag-part z1) (imag-part z2))))
+
+         (define (mul-complex z1 z2)
+           (make-from-mag-ang (* (magnitude z1) (magnitude z2))
+                              (+ (angle z1) (angle z2))))
+
+         (define (div-complex z1 z2)
+           (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
+                              (- (angle z1) (angle z2))))
+       #+END_SRC
+****** Implementations of selectors that supports both representations
+       #+NAME: selectors
+       #+BEGIN_SRC scheme
+         (define (real-part z)
+           (cond ((rectangular? z) 
+                  (real-part-rectangular (contents z)))
+                 ((polar? z)
+                  (real-part-polar (contents z)))
+                 (else (error "Unknown type -- REAL-PART" z))))
+
+         (define (imag-part z)
+           (cond ((rectangular? z)
+                  (imag-part-rectangular (contents z)))
+                 ((polar? z)
+                  (imag-part-polar (contents z)))
+                 (else (error "Unknown type -- IMAG-PART" z))))
+
+         (define (magnitude z)
+           (cond ((rectangular? z)
+                  (magnitude-rectangular (contents z)))
+                 ((polar? z)
+                  (magnitude-polar (contents z)))
+                 (else (error "Unknown type -- MAGNITUDE" z))))
+
+         (define (angle z)
+           (cond ((rectangular? z)
+                  (angle-rectangular (contents z)))
+                 ((polar? z)
+                  (angle-polar (contents z)))
+                 (else (error "Unknown type -- ANGLE" z))))
+       #+END_SRC
+****** Predicates for recognizing rectangular and polar types using tags
+       #+NAME: predicates
+       #+BEGIN_SRC scheme
+         (define (rectangular? z)
+           (eq? (type-tag z) 'rectangular))
+         (define (polar? z)
+           (eq? (type-tag z) 'polar))
+       #+END_SRC
+****** Selectors and constructors for rectangular type
+       #+NAME: rectangular-selectors-and-constructors
+       #+BEGIN_SRC scheme
+         (define (real-part-rectangular z) (car z))
+         (define (imag-part-rectangular z) (cdr z))
+         (define (magnitude-rectangular z)
+           (sqrt (+ (square (real-part-rectangular z))
+                    (square (imag-part-rectangular z)))))
+         (define (angle-rectangular z)
+           (atan (imag-part-rectangular z)
+                 (real-part-rectangular z)))
+         (define (make-from-real-imag-rectangular x y)
+           (attach-tag 'rectangular (cons x y)))
+       #+END_SRC
+****** Selectors and constructors for polar type
+       #+NAME: polar-selectors-and-constructors
+       #+BEGIN_SRC scheme
+         (define (real-part-polar z)
+           (* (magnitude-polar z) (cos (angle-polar z))))
+         (define (imag-part-polar z)
+           (* (magnitude-polar z) (sin (angle-polar z))))
+         (define (magnitude-polar z) (car z))
+         (define (angle-polar z) (cdr z))
+         (define (make-from-mag-ang-polar r a)
+           (attach-tag 'polar (cons r a)))
+       #+END_SRC
+****** Tag functions
+       #+NAME: tag-functions
+       #+BEGIN_SRC scheme
+         (define (attach-tag type-tag contents)
+           (cons type-tag contents))
+         (define (type-tag datum)
+           (if (pair? datum)
+               (car datum)
+               (error "Bad tagged datum -- TYPE-TAG" datum)))
+         (define (contents datum)
+           (if (pair? datum)
+               (cdr datum)
+               (error "Bad tagged datum -- CONTENTS" datum)))
+       #+END_SRC
+****** Reasonable implementations of constructors
+       #+NAME: constructors
+       #+BEGIN_SRC scheme
+         (define (make-from-real-imag x y)
+           (make-from-real-imag-rectangular x y))
+         (define (make-from-mag-ang r a)
+           (make-from-mag-ang-polar r a))
+       #+END_SRC
+****** Source Code
+       #+NAME: complex_numbers
+       #+BEGIN_SRC scheme :tangle complex_numbers_naive.scm :noweb yes
+         <<operations>>
+         <<selectors>>
+         <<predicates>>
+         <<rectangular-selectors-and-constructors>>
+         <<polar-selectors-and-constructors>>
+         <<tag-functions>>
+         <<constructors>>
+       #+END_SRC
+***** Data-directed approach
+****** Table of operations for the complex number system
+       |------------+-----------------+-----------------------|
+       | Operations | Polar           | Rectangular           |
+       |------------+-----------------+-----------------------|
+       | real-part  | real-part-polar | real-part-rectangular |
+       | imag-part  | imag-part-polar | imag-part-rectangular |
+       | magnitude  | magnitude-polar | magnitude-rectangular |
+       | angle      | angle-polar     | angle-rectangular     |
+       |------------+-----------------+-----------------------|
+****** Procedures to manipulate the table
+       - =(put <op> <type> <item>)=
+         Installs the =<item>= in the table, indexed by the =<op>= and =<type>=
+       - =(get <op> <type>)=
+         Looks up the =<op>=, =<type>= entry in the table and returns the =<item>= found there.
+         If no =<item>= is found, =get= returns =false=
+
+****** Install rectangular package
+       #+NAME: install-rectangular-package
+       #+BEGIN_SRC scheme
+         (define (install-rectangular-package)
+           ;; internal procedures
+           (define (real-part z) (car z))
+           (define (imag-part z) (cdr z))
+           (define (make-from-real-imag x y) (cons x y))
+           (define (magnitude z)
+             (sqrt (+ (square (real-part z))
+                      (square (imag-part z)))))
+           (define (angle z)
+             (atan (imag-part z) (real-part z)))
+           (define (make-from-mag-ang r a)
+             (cons (* r (cos a)) (* r (sin a))))
+
+           ;; interface to the rest of the system
+           (define (tag x) (attach-tag 'rectangular x))
+           (put 'real-part '(rectangular) real-part)
+           (put 'imag-part '(rectangular) imag-part)
+           (put 'magnitude '(rectangular) magnitude)
+           (put 'angle '(rectangular) angle)
+           (put 'make-from-real-imag 'rectangular
+                (lambda (x y) (tag (make-from-real-imag x y))))
+           (put 'make-from-mag-ang 'rectangular
+                (lambda (r a) (tag (make-from-mag-ang r a))))
+           'done)
+       #+END_SRC
+       
+****** Install polar package
+       #+NAME: install-polar-package
+       #+BEGIN_SRC scheme
+         (define (install-polar-package)
+           ;; internal procedures
+           (define (magnitude z) (car z))
+           (define (angle z) (cdr z))
+           (define (make-from-mag-ang r a) (cons r a))
+           (define (real-part z)
+             (* (magnitude z) (cos (angle z))))
+           (define (imag-part z)
+             (* (magnitude z) (sin (angle z))))
+           (define (make-from-real-imag x y)
+             (cons (sqrt (+ (square x) (square y)))
+                   (atan y x)))
+
+           ;; interface to the rest of the system
+           (define (tag x) (attach-tag 'polar x))
+           (put 'real-part '(polar) real-part)
+           (put 'imag-part '(polar) imag-part)
+           (put 'magnitude '(polar) magnitude)
+           (put 'angle '(polar) angle)
+           (put 'make-from-real-imag 'polar
+                (lambda (x y) (tag (make-from-real-imag x y))))
+           (put 'make-from-mag-ang 'polar
+                (lambda (r a) (tag (make-from-mag-ang r a))))
+           'done)
+       #+END_SRC
+
+****** Define generic selectors using apply-generic
+       #+NAME: generic-selectors-using-table
+       #+BEGIN_SRC scheme
+         (define (real-part z) (apply-generic 'real-part z))
+         (define (imag-part z) (apply-generic 'imag-part z))
+         (define (magnitude z) (apply-generic 'magnitude z))
+         (define (angle z) (apply-generic 'angle z))
+       #+END_SRC
+
+       #+NAME: apply-generic
+       #+BEGIN_SRC scheme
+         (define (apply-generic op . args)
+           (let ((type-tags (map type-tag args)))
+             (let ((proc (get op type-tags)))
+               (if proc
+                   (apply proc (map contents args))
+                   (error
+                    "No method for these types -- APPLY-GENERIC"
+                    (list op type-tags))))))
+       #+END_SRC
+
+****** Extract the constructors from the table
+       #+NAME: constructors-using-table
+       #+BEGIN_SRC scheme
+         (define (make-from-real-imag x y)
+           ((get 'make-from-real-imag 'rectangular) x y))
+
+         (define (make-from-mag-ang r a)
+           ((get 'make-from-mag-ang 'polar) r a))
+       #+END_SRC
+
+****** Implementation of the table
+       #+NAME: table-implementation
+       #+BEGIN_SRC scheme
+         ;; Helper functions --- implementation of two dimensional table
+         (define (assoc key records)
+           (cond ((null? records) false)
+                 ((equal? key (caar records)) (car records))
+                 (else (assoc key (cdr records)))))
+
+         (define (make-table)
+           (let ((local-table (list '*table*)))
+             (define (lookup key-1 key-2)
+               (let ((subtable (assoc key-1 (cdr local-table))))
+                 (if subtable
+                     (let ((record (assoc key-2 (cdr subtable))))
+                       (if record
+                           (cdr record)
+                           false))
+                     false)))
+             (define (insert! key-1 key-2 value)
+               (let ((subtable (assoc key-1 (cdr local-table))))
+                 (if subtable
+                     (let ((record (assoc key-2 (cdr subtable))))
+                       (if record
+                           (set-cdr! record value)
+                           (set-cdr! subtable
+                                     (cons (cons key-2 value)
+                                           (cdr subtable)))))
+                     (set-cdr! local-table
+                               (cons (list key-1
+                                           (cons key-2 value))
+                                     (cdr local-table)))))
+               'ok)
+             (define (dispatch m)
+               (cond ((eq? m 'lookup-proc) lookup)
+                     ((eq? m 'insert-proc!) insert!)
+                     (else (error "Unknown operation -- TABLE" m))))
+             dispatch))
+
+         (define operation-table (make-table))
+         (define get (operation-table 'lookup-proc))
+         (define put (operation-table 'insert-proc!))
+
+
+       #+END_SRC
+
+****** Source code
+       #+NAME: complex_numbers_data_directed
+       #+BEGIN_SRC scheme :tangle complex_numbers_data_directed.scm :noweb yes
+         <<operations>>
+         <<tag-functions>>
+         <<install-rectangular-package>>
+         <<install-polar-package>>
+         <<generic-selectors-using-table>>
+         <<constructors-using-table>>
+         <<apply-generic>>
+         <<table-implementation>>
+       #+END_SRC
+
 **** 4.1 
 ***** The Metacircular Evaluator
 ****** The Core of the Evaluator
@@ -1707,54 +2006,6 @@
         and no new ones can be defined without editing the definition of =eval=.
         In most Lisp implementations, dispatching on the type of an expression is done in a data-directed style.
         This allows a user to add new types of expressions that =eval= can distinguish, without modifying the definition of =eval= itself.
-
-******** Exercise 4.2
-         #+begin_quote
-         Louis Reasoner plans to reorder the cond clauses in eval so that the clause
-         for procedure applications appears before the clause for assignments.
-         He argues that this will make the interpreter more efficient:
-         Since programs usually contain more applications than assignments, definitions, and so on,
-         his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
-         #+end_quote
-
-         #+NAME: eval-ex-4.2
-         #+BEGIN_SRC scheme
-           (define (eval exp env)
-             (cond ((self-evaluating? exp) exp)
-                   ((variable? exp) (lookup-variable-value exp env))
-                   ((quoted? exp) (text-of-quotation exp))
-                   ((application? exp)
-                    (apply (eval (operator exp) env)
-                           (list-of-values (operands exp) env)))
-                   ((assignment? exp) (eval-assignment exp env))
-                   ((definition? exp) (eval-definition exp env))
-                   ((if? exp) (eval-if exp env))
-                   ((lambda? exp)
-                    (make-procedure (lambda-parameters exp)
-                                    (lambda-body exp)
-                                    env))
-                   ((begin? exp)
-                    (eval-sequence (begin-actions exp) env))
-                   ((cond? exp) (eval (cond->if exp) env))
-
-                   (else
-                    (error "Unknown expression type -- EVAL" exp))))
-         #+END_SRC
-
-         #+NAME: procedure-application-ex-4.2
-         #+BEGIN_SRC scheme
-           (define (application? exp) (tagged-list? exp 'call))
-
-           (define (operator exp) (cadr exp))
-
-           (define (operands exp) (cddr exp))
-
-           (define (no-operands? ops) (null? ops))
-
-           (define (first-operand ops) (car ops))
-
-           (define (rest-operands ops) (cdr ops))
-         #+END_SRC
 
 ******* Apply
         =Apply= takes two arguments, a procedure and a list of arguments to which the procedure should be applied.
@@ -1867,12 +2118,91 @@
         #+BEGIN_SRC scheme
           (define (eval-definition exp env)
             (define-variable! (definition-variable exp)
-                              (eval (definition-value exp) env)
-                              env)
+              (eval (definition-value exp) env)
+              env)
             'ok)
         #+END_SRC
 
         We have chosen here to return the symbol =ok= as the value of an assignment or a definition.
+******** Exercise 4.2
+         #+begin_quote
+         Louis Reasoner plans to reorder the cond clauses in eval so that the clause
+         for procedure applications appears before the clause for assignments.
+         He argues that this will make the interpreter more efficient:
+         Since programs usually contain more applications than assignments, definitions, and so on,
+         his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
+         #+end_quote
+
+         #+NAME: eval-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((quoted? exp) (text-of-quotation exp))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   ((assignment? exp) (eval-assignment exp env))
+                   ((definition? exp) (eval-definition exp env))
+                   ((if? exp) (eval-if exp env))
+                   ((lambda? exp)
+                    (make-procedure (lambda-parameters exp)
+                                    (lambda-body exp)
+                                    env))
+                   ((begin? exp)
+                    (eval-sequence (begin-actions exp) env))
+                   ((cond? exp) (eval (cond->if exp) env))
+
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+         #+END_SRC
+
+         #+NAME: procedure-application-ex-4.2
+         #+BEGIN_SRC scheme
+           (define (application? exp) (tagged-list? exp 'call))
+
+           (define (operator exp) (cadr exp))
+
+           (define (operands exp) (cddr exp))
+
+           (define (no-operands? ops) (null? ops))
+
+           (define (first-operand ops) (car ops))
+
+           (define (rest-operands ops) (cdr ops))
+         #+END_SRC
+
+
+******** Exercise 4.3
+         #+begin_quote
+         Rewrite eval so that the dispatch is done in data-directed style.
+         Compare this with the data-directed differentiation procedure of exercise 2.73.
+         (You may use the car of a compound expression as the type of the expression, as is appropriate for the syntax implemented in this section.) 
+         #+end_quote
+         
+         #+NAME: eval-ex-4.3
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((get 'eval (car exp)) ((get 'eval (car exp)) exp env))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+
+           (put 'eval 'quote text-of-quotation)
+           (put 'eval 'set! eval-assignment)
+           (put 'eval 'define eval-definition)
+           (put 'eval 'if eval-if)
+           (put 'eval 'lambda (lambda (x y)
+                                (make-procedure (lambda-parameters x) (lambda-body x) y)))
+           (put 'eval 'begin (lambda (x y)
+                               (eval-sequence (begin-sequence x) y)))
+           (put 'eval 'cond (lambda (x y)
+                              (evaln (cond->if x) y)))
+         #+END_SRC
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
@@ -1885,49 +2215,49 @@
        Here is the specification of the syntax of our language:
 
 ******* The only self-evaluating items are numbers and strings:
-       #+NAME: self-evaluating-items
-       #+BEGIN_SRC scheme
-         (define (self-evaluating? exp)
-           (cond ((number? exp) true)
-                 ((string? exp) true)
-                 (else false)))
-       #+END_SRC
+        #+NAME: self-evaluating-items
+        #+BEGIN_SRC scheme
+          (define (self-evaluating? exp)
+            (cond ((number? exp) true)
+                  ((string? exp) true)
+                  (else false)))
+        #+END_SRC
 
 ******* Variables are represented by symbols:
-       #+NAME: variables
-       #+BEGIN_SRC scheme
-         (define (variable? exp) (symbol? exp))
-       #+END_SRC
+        #+NAME: variables
+        #+BEGIN_SRC scheme
+          (define (variable? exp) (symbol? exp))
+        #+END_SRC
 
 ******* Quotations have the form =(quote <text-of-quotation>)=:
-       #+NAME: quotations
-       #+BEGIN_SRC scheme
-         (define (quoted? exp)
-           (tagged-list? exp 'quote))
+        #+NAME: quotations
+        #+BEGIN_SRC scheme
+          (define (quoted? exp)
+            (tagged-list? exp 'quote))
 
-         (define (text-of-quotation exp) (cadr exp))
-       #+END_SRC
+          (define (text-of-quotation exp) (cadr exp))
+        #+END_SRC
 
-       =Quoted?= is defined in terms of the procedure =tagged-list?=, which identifies lists beginning with a designated symbol:
+        =Quoted?= is defined in terms of the procedure =tagged-list?=, which identifies lists beginning with a designated symbol:
 
-       #+NAME: tagged-list
-       #+BEGIN_SRC scheme
-         (define (tagged-list? exp tag)
-           (if (pair? exp)
-               (eq? (car exp) tag)
-               false))
-       #+END_SRC
+        #+NAME: tagged-list
+        #+BEGIN_SRC scheme
+          (define (tagged-list? exp tag)
+            (if (pair? exp)
+                (eq? (car exp) tag)
+                false))
+        #+END_SRC
 
 ******* Assignments have the form =(set! <var> <value>)=:
-       #+NAME: assignments
-       #+BEGIN_SRC scheme
-         (define (assignment? exp)
-           (tagged-list? exp 'set!))
+        #+NAME: assignments
+        #+BEGIN_SRC scheme
+          (define (assignment? exp)
+            (tagged-list? exp 'set!))
 
-         (define (assignment-variable exp) (cadr exp))
+          (define (assignment-variable exp) (cadr exp))
 
-         (define (assignment-value exp) (caddr exp))
-       #+END_SRC
+          (define (assignment-value exp) (caddr exp))
+        #+END_SRC
        
 ******* Definitions have the form 
         =(define <var> <value>)=
@@ -1938,179 +2268,179 @@
         
         The latter form (standard procedure definition) is syntactic sugar for
 
-       #+BEGIN_SRC scheme
-       (define <var>
-         (lambda (<param1> ... <paramn>)
-           <body>))
-       #+END_SRC
+        #+BEGIN_SRC scheme
+          (define <var>
+            (lambda (<param1> ... <paramn>)
+              <body>))
+        #+END_SRC
 
-       The corresponding syntax procedures are the following:
+        The corresponding syntax procedures are the following:
 
-       #+NAME: definitions
-       #+BEGIN_SRC scheme
-         (define (definition? exp) (tagged-list? exp 'define))
+        #+NAME: definitions
+        #+BEGIN_SRC scheme
+          (define (definition? exp) (tagged-list? exp 'define))
 
-         (define (definition-variable exp)
-           (if (symbol? (cadr exp))
-               (cadr exp)
-               (caadr exp)))
+          (define (definition-variable exp)
+            (if (symbol? (cadr exp))
+                (cadr exp)
+                (caadr exp)))
 
-         (define (definition-value exp)
-           (if (symbol? (cadr exp))
-               (caddr exp)
-               (make-lambda (cdadr exp)   ;formal parameters
-                            (cddr exp)))) ;body
-       #+END_SRC
+          (define (definition-value exp)
+            (if (symbol? (cadr exp))
+                (caddr exp)
+                (make-lambda (cdadr exp)   ;formal parameters
+                             (cddr exp)))) ;body
+        #+END_SRC
       
 ******* Lambda expressions are lists that begin with the symbol =lambda=:
-       #+NAME: lambda-expressions
-       #+BEGIN_SRC scheme
-         (define (lambda? exp) (tagged-list? exp 'lambda))
+        #+NAME: lambda-expressions
+        #+BEGIN_SRC scheme
+          (define (lambda? exp) (tagged-list? exp 'lambda))
 
-         (define (lambda-parameters exp) (cadr exp))
+          (define (lambda-parameters exp) (cadr exp))
 
-         (define (lambda-body exp) (cddr exp))
+          (define (lambda-body exp) (cddr exp))
 
-         (define (make-lambda parameters body)
-           (cons 'lambda (cons parameters body)))
-       #+END_SRC
+          (define (make-lambda parameters body)
+            (cons 'lambda (cons parameters body)))
+        #+END_SRC
 
 ******* Conditionals begin with =if= and have a predicate, a consequent, and an (optional) alternative. If the expression has no alternative part, we provide =false= as the alternative.
-       #+NAME: if-conditionals
-       #+BEGIN_SRC scheme
-         (define (if? exp) (tagged-list? exp 'if))
+        #+NAME: if-conditionals
+        #+BEGIN_SRC scheme
+          (define (if? exp) (tagged-list? exp 'if))
 
-         (define (if-predicate exp) (cadr exp))
+          (define (if-predicate exp) (cadr exp))
 
-         (define (if-consequent exp) (caddr exp))
+          (define (if-consequent exp) (caddr exp))
 
-         (define (if-alternative exp)
-           (if (not (null? (cdddr exp)))
-               (cadddr exp)
-               'false))
+          (define (if-alternative exp)
+            (if (not (null? (cdddr exp)))
+                (cadddr exp)
+                'false))
 
-         (define (make-if predicate consequent alternative)
-           (list 'if predicate consequent alternative))
-       #+END_SRC
+          (define (make-if predicate consequent alternative)
+            (list 'if predicate consequent alternative))
+        #+END_SRC
 
 ******* =Begin= packages a sequence of expressions into a single expression.
 
         We include syntax operations on =begin= expressions to extract the actual sequence from the =begin= expression,
         as well as selectors that return the first expression and the rest of the expressions in the sequence.
        
-       #+NAME: begin
-       #+BEGIN_SRC scheme
-         (define (begin? exp) (tagged-list? exp 'begin))
+        #+NAME: begin
+        #+BEGIN_SRC scheme
+          (define (begin? exp) (tagged-list? exp 'begin))
 
-         (define (begin-actions exp) (cdr exp))
+          (define (begin-actions exp) (cdr exp))
 
-         (define (last-exp? seq) (null? (cdr seq)))
+          (define (last-exp? seq) (null? (cdr seq)))
 
-         (define (first-exp seq) (car seq))
+          (define (first-exp seq) (car seq))
 
-         (define (rest-exps seq) (cdr seq))
+          (define (rest-exps seq) (cdr seq))
 
-         (define (make-begin seq) (cons 'begin seq))
+          (define (make-begin seq) (cons 'begin seq))
 
-         (define (sequence->exp seq)
-           (cond ((null? seq) seq)
-                 ((last-exp? seq) (first-exp seq))
-                 (else (make-begin seq))))
-       #+END_SRC
+          (define (sequence->exp seq)
+            (cond ((null? seq) seq)
+                  ((last-exp? seq) (first-exp seq))
+                  (else (make-begin seq))))
+        #+END_SRC
 
-       We also include a constructor =sequence->exp= (for use by =cond-if=) that transforms a sequence into a single expression,
-       using =begin= if necessary:
+        We also include a constructor =sequence->exp= (for use by =cond-if=) that transforms a sequence into a single expression,
+        using =begin= if necessary:
 
-       #+NAME: sequence->exp
-       #+BEGIN_SRC scheme
-         (define (sequence->exp seq)
-           (cond ((null? seq) seq)
-                 ((last-exp? seq) (first-exp seq))
-                 (else (make-begin seq))))
+        #+NAME: sequence->exp
+        #+BEGIN_SRC scheme
+          (define (sequence->exp seq)
+            (cond ((null? seq) seq)
+                  ((last-exp? seq) (first-exp seq))
+                  (else (make-begin seq))))
 
-         (define (make-begin seq) (cons 'begin seq))
-       #+END_SRC
+          (define (make-begin seq) (cons 'begin seq))
+        #+END_SRC
 
 ******* A procedure application is any compound expression that is not one of the above expression types. The =car= of the expression is the operator, and the =cdr= is the list of operands:
-       #+NAME: procedure-application
-       #+BEGIN_SRC scheme
-         (define (application? exp) (pair? exp))
+        #+NAME: procedure-application
+        #+BEGIN_SRC scheme
+          (define (application? exp) (pair? exp))
 
-         (define (operator exp) (car exp))
+          (define (operator exp) (car exp))
 
-         (define (operands exp) (cdr exp))
+          (define (operands exp) (cdr exp))
 
-         (define (no-operands? ops) (null? ops))
+          (define (no-operands? ops) (null? ops))
 
-         (define (first-operand ops) (car ops))
+          (define (first-operand ops) (car ops))
 
-         (define (rest-operands ops) (cdr ops))
-       #+END_SRC
+          (define (rest-operands ops) (cdr ops))
+        #+END_SRC
 ******* Derived expressions
         Some special forms in our languages can be defined in terms of expressions involving other special forms,
         rather than being implemented directly.
         One example is =cond=, which can be implemented as a nest of =if= expressions.
         For example, we can reduce the problem of evaluating the expression
 
-       #+BEGIN_SRC scheme
-         (cond ((> x 0) x)
-               ((= x 0) (display 'zero) 0)
-               (else (- x)))
-       #+END_SRC
+        #+BEGIN_SRC scheme
+          (cond ((> x 0) x)
+                ((= x 0) (display 'zero) 0)
+                (else (- x)))
+        #+END_SRC
 
-       to the problem of evaluating the following expression involving =if= and =begin= expressions:
+        to the problem of evaluating the following expression involving =if= and =begin= expressions:
 
-       #+BEGIN_SRC scheme
-         (if (> x 0)
-             x
-             (if (= x 0)
-                 (begin (display 'zero)
-                        0)
-                 (- x)))
-       #+END_SRC
+        #+BEGIN_SRC scheme
+          (if (> x 0)
+              x
+              (if (= x 0)
+                  (begin (display 'zero)
+                         0)
+                  (- x)))
+        #+END_SRC
 
-       Implementing the evaluation of =cond= in this way simplifies the evaluator because it reduces the number of special forms
-       for which the evaluation process must be explicitly specified.
+        Implementing the evaluation of =cond= in this way simplifies the evaluator because it reduces the number of special forms
+        for which the evaluation process must be explicitly specified.
 
-       We include syntax procedures that extract the parts of a =cond= expression and procedure =cond->if= that transforms =cond= expressions
-       into =if= expressions.
-       A case analysis begins with =cond= and has a list of predicate-action clauses.
-       A clause is an =else= clause if its predicate is the symbol =else=.
+        We include syntax procedures that extract the parts of a =cond= expression and procedure =cond->if= that transforms =cond= expressions
+        into =if= expressions.
+        A case analysis begins with =cond= and has a list of predicate-action clauses.
+        A clause is an =else= clause if its predicate is the symbol =else=.
 
-       #+NAME: cond
-       #+BEGIN_SRC scheme
+        #+NAME: cond
+        #+BEGIN_SRC scheme
 
-         (define (cond? exp) (tagged-list? exp 'cond))
+          (define (cond? exp) (tagged-list? exp 'cond))
 
-         (define (cond-clauses exp) (cdr exp))
+          (define (cond-clauses exp) (cdr exp))
 
-         (define (cond-predicate clause) (car clause))
+          (define (cond-predicate clause) (car clause))
 
-         (define (cond-actions clause) (cdr clause))
+          (define (cond-actions clause) (cdr clause))
 
-         (define (cond-else-clause? clause)
-           (eq? (cond-predicate clause) 'else))
+          (define (cond-else-clause? clause)
+            (eq? (cond-predicate clause) 'else))
 
-         (define (cond->if exp)
-           (expland-clauses (cond-clauses exp)))
+          (define (cond->if exp)
+            (expland-clauses (cond-clauses exp)))
 
-         (define (expand-clauses clauses)
-           (if (null? clauses)
-               'false
-               (let ((first (car clauses))
-                     (rest (cdr clauses)))
-                 (if (cond-else-clause? first)
-                     (if (null? rest)
-                         (sequence->exp (cond-actions first))
-                         (error "ELSE clause isn't last -- COND->IF"
-                                clauses))
-                     (make-if (cond-predicate first)
-                              (sequence->exp (cond-actions first))
-                              (expand-clauses rest))))))
-       #+END_SRC
+          (define (expand-clauses clauses)
+            (if (null? clauses)
+                'false
+                (let ((first (car clauses))
+                      (rest (cdr clauses)))
+                  (if (cond-else-clause? first)
+                      (if (null? rest)
+                          (sequence->exp (cond-actions first))
+                          (error "ELSE clause isn't last -- COND->IF"
+                                 clauses))
+                      (make-if (cond-predicate first)
+                               (sequence->exp (cond-actions first))
+                               (expand-clauses rest))))))
+        #+END_SRC
 
-       Expressions (such as =cond=) that we choose to implement as syntactic transformations are called /derived expressions/.
-       =Let= expressions are also derived expressions.
+        Expressions (such as =cond=) that we choose to implement as syntactic transformations are called /derived expressions/.
+        =Let= expressions are also derived expressions.
 ****** Evaluator Data Structures
        In addition to defining the external syntax of expressions,
        the evaluator implementation must also define the data structures that the evaluator manipulates internally,
@@ -2288,7 +2618,7 @@
        so that they can be used as variables in expressions to be evaluated.
 
        #+NAME: setup-env
-        #+BEGIN_SRC scheme
+       #+BEGIN_SRC scheme
          (define (setup-environment)
            (let ((initial-env
                   (extend-environment (primitive-procedure-names)
@@ -2297,7 +2627,7 @@
              (define-variable! 'true true initial-env)
              (define-variable! 'false false initial-env)
              initial-env))
-        #+END_SRC
+       #+END_SRC
 
        It does matter how we represent the primitive procedure objects,
        so long as =apply= can identify and apply them by using the procedures =primitive-procedure?= and =apply-primitive-procedure=.
@@ -2305,17 +2635,17 @@
        in the underlying Lisp that implements that primitive.     
 
        #+NAME: primitive-procedure
-        #+BEGIN_SRC scheme
+       #+BEGIN_SRC scheme
          (define (primitive-procedure? proc)
            (tagged-list? proc 'primitive))
 
          (define (primitive-implementation proc) (cadr proc))
-        #+END_SRC
+       #+END_SRC
 
        =Setup-environment= will get the primitive names and implementation procedures from a list:
 
        #+NAME: primitive-procedures
-        #+BEGIN_SRC scheme
+       #+BEGIN_SRC scheme
          ;; TODO add more
          (define primitive-procedures
            (list (list 'car car)
@@ -2328,21 +2658,21 @@
 
          (define (primitive-procedure-objects)
            (map (lambda (proc) (list 'primitive (cadr proc))) primitive-procedures))
-        #+END_SRC
+       #+END_SRC
 
        To apply a primitive procedure, we simply apply the implementation procedure to the arguments, using the underlying Lisp system:
 
        #+NAME: apply-primitive-procedure
-        #+BEGIN_SRC scheme
+       #+BEGIN_SRC scheme
          (define (apply-primitive-procedure proc args)
            (apply-in-underlying-scheme
             (primitive-implementation proc) args))
-        #+END_SRC
+       #+END_SRC
 
        For convenience in running the metacircular evaluator, we provide a /driver loop/ that models the read-eval-print
        loop of the underlying Lisp system.
        #+NAME: driver-loop
-        #+BEGIN_SRC scheme
+       #+BEGIN_SRC scheme
 
          (define input-prompt ";; M-Eval input:")
          (define output-prompt ";; M-Eval value:")
@@ -2368,27 +2698,27 @@
                (announce-output output-prompt)
                (user-print output)))
            (driver-loop))
-                                                 
-        #+END_SRC
 
-      #+NAME: apply-in-underlying-scheme
+       #+END_SRC
+
+       #+NAME: apply-in-underlying-scheme
        #+BEGIN_SRC scheme
          ;; This has to be put before defining the metacircular apply
          (define apply-in-underlying-scheme apply)
        #+END_SRC
 
        The last step to run the =driver-loop= is to run the following two lines.
-      #+NAME: run
+       #+NAME: run
        #+BEGIN_SRC scheme
-        ;(define the-global-environment (setup-environment))
-        ;(driver-loop)
+                                                 ;(define the-global-environment (setup-environment))
+                                                 ;(driver-loop)
        #+END_SRC
        
 ****** source code
        #+NAME: metacircularevaluator
        #+BEGIN_SRC scheme :tangle metacircular.scm :noweb yes
-         <<eval-ex-4.2>>
          <<apply-in-underlying-scheme>>
+         <<eval>>
          <<apply>>
          <<list-of-values>>
          <<eval-if>>
@@ -2483,7 +2813,8 @@
         void inplace_swap(int *x, int *y)
         {
           ,*y = *x @
-        }
+            }
 
       #+END_SRC
+
 
