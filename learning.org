@@ -1022,6 +1022,40 @@
    - [ ] 实现爆炸扩散动画-1.flv
 ** TODO MotionLayout
    - [ ] Simple transition tutorial https://www.youtube.com/watch?v=T6029TkohgU&t=656s
+** Navigation
+*** Key parts
+    - Navigation graph (xml)
+    - NavHostFragment
+    - NavController
+*** Navigation graph
+    Contains =Destinations=, and they are connected by arrows called =Actions=.
+    =Destination= can be Fragment, Activity or something customized.
+*** NavController
+**** How to find NavController?
+     Your =NavController= is associated with a =NavHostFragment=
+     1. =Fragment.findNavController()=
+     2. =View.findNavController()=
+     3. =Activity.findNavController(viewId: Int)=
+**** What can NavController do?
+***** Navigate using =destination='s =id= (not recommended)
+      =findNavController().navigate(R.id.some_destination_id)=
+***** Navigate using =action=
+***** NavOptions
+      When navigate using =NavController=, we can speicify a =NavOption=.
+      All the options:
+      #+BEGIN_SRC kotlin
+        private boolean mSingleTop;
+        private int mPopUpTo;
+        private boolean mPopUpToInclusive;
+
+        private int mEnterAnim;
+        private int mExitAnim;
+        private int mPopEnterAnim;
+        private int mPopExitAnim;
+      #+END_SRC
+
+      If you are using =Destination=, these options can be specified inside the xml.
+
 ** TODO Blog posts
    - [ ] https://zsmb.co
 * Programming Languages
