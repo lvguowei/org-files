@@ -892,6 +892,56 @@
      Ex. me olemme (standard) vs. me ollaan (spoken)
      3rd person plural (they) is used in 3rd person singular form
      (ex. Ne ovat (standard) vs ne on (spoken)
+*** Finntastic2
+**** Verbs syödä & juoda
+    |----------------------+-----------------------|
+    | To Be                | TO EAT                |
+    |----------------------+-----------------------|
+    | OON = I AM           | SYÖN = I EAT          |
+    | OOT = YOU ARE        | SYÖT = YOU EAT        |
+    | ON = HE/SHE/IT IS    | SYÖ = HE/SHE/IT EATS  |
+    | OLLAAN = WE ARE      | SYÖDÄÄN = WE EAT      |
+    | OOTTE = YOU ARE (PL) | SYÖTTE = YOU EAT (PL) |
+    | ON = THEY ARE        | SYÖ = THEY EAT        |
+    |----------------------+-----------------------|
+
+    Mitä sä yleensä syöt aamupalaks(i)?
+    What do you usually eat for breakfast?
+
+    Ruisleipää, jugurttia ja hedelmiä.
+    Rye bread, yogurt and fruits.
+
+    Mitä me syödään tänään?
+    What do we eat today?
+
+    Tänään me syödään lihakeittoa.
+    Today we eat meat soup.
+
+    Mitä ne syö?
+    What are they eating?
+
+    Ne syö sushia.
+    They are eating sushi.
+
+    |---------+------------------|
+    | JUON    | I DRINK          |
+    | JUOT    | YOU DRINK        |
+    | JUO     | HE/SHE/IT DRINKS |
+    | JUODAAN | WE DRINK         |
+    | JUOTTE  | YOU DRINK (PL)   |
+    | JUO     | THEY DRINK       |
+    |---------+------------------|
+
+    Juokko/juotko/juoks vettä?
+    Do you drink water?
+
+    Taas nuo juo kaljaa.
+    Again they are drinking beer.
+
+    Salla juo aina punaviiniä.
+    Salla always drinks red wine.
+
+    
 * Android
 ** [20/20] Android Multithreading Masterclass
    - [X] Memory Leaks in Android
@@ -1040,6 +1090,7 @@
 ***** Navigate using =destination='s =id= (not recommended)
       =findNavController().navigate(R.id.some_destination_id)=
 ***** Navigate using =action=
+      =navigate(@IdRes int action_id, @Nullable Bundle args)=
 ***** NavOptions
       When navigate using =NavController=, we can speicify a =NavOption=.
       All the options:
@@ -1056,6 +1107,61 @@
 
       If you are using =Destination=, these options can be specified inside the xml.
 
+**** Using safe args for navigation
+     =Safe args= is a gradle plugin.
+**** Define =argument= in fragment
+     #+BEGIN_SRC xml
+       <fragment
+           android:id="@+id/flow_step_one_dest"
+           android:name="com.example.android.codelabs.navigation.FlowStepFragment"
+           tools:layout="@layout/flow_step_one_fragment">
+         <argument
+             android:name="flowStepNumber"
+             app:argType="integer"
+             android:defaultValue="1" />
+
+         <action
+             android:id="@+id/next_action"
+             app:destination="@+id/flow_step_two_dest" />
+       </fragment>
+     #+END_SRC
+     This means: the =FlowStepFragment= expects an Integer argument =flowStepNumber=.
+**** Get the argument in Fragment
+     #+BEGIN_SRC kotlin
+       val safeArgs: FlowStepFragmentArgs by navArgs()
+       val flowStepNumber = safeArgs.flowStepNumber
+     #+END_SRC
+**** Navigate to the Fragment with argument
+     Let's see how to navigate from =HomeFragment= to =FlowStepFragment=.
+
+     This is =HomeFragment=:
+     #+BEGIN_SRC xml
+       <fragment
+           android:id="@+id/home_dest"
+           android:name="com.example.android.codelabs.navigation.HomeFragment"
+           android:label="@string/home"
+           tools:layout="@layout/home_fragment">
+
+         <action
+             android:id="@+id/next_action"
+             app:destination="@id/flow_step_one_dest"
+             app:enterAnim="@anim/slide_in_right"
+             app:exitAnim="@anim/slide_out_left"
+             app:popEnterAnim="@anim/slide_in_left"
+             app:popExitAnim="@anim/slide_out_right" />
+       </fragment>
+     #+END_SRC
+
+     Safe args will generate a class =HomeFragmentDirections= that contains all the specified =actions=.
+
+     In this case, it knows that the =destination= of the =next_action= is =FlowStepFragment=, which requires a argument.
+     So it generates a method =nextAction(Integer)= with one Integer argument.
+     
+     #+BEGIN_SRC kotlin
+       val flowStepNumberArg = 1
+       val action = HomeFragmentDirections.nextAction(flowStepNumberArg)
+       findNavController().navigate(action)
+     #+END_SRC
 ** TODO Blog posts
    - [ ] https://zsmb.co
 * Programming Languages
