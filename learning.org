@@ -755,7 +755,7 @@
      | sulois-ta          | sulois-i-a       | cute         |
      | lasi-a             | lase-j-a         | glass        |
      | kaappi-a           | kaappe-j-a       | cabinet      |
-*** TODO Finntastic Spoken Finnish
+*** Finntastic Spoken Finnish
     https://finntastic.teachable.com
     [2020-05-25 ma 00:02]
 **** Basic Finnish Phrases
@@ -940,8 +940,86 @@
 
     Salla juo aina punaviiniä.
     Salla always drinks red wine.
+**** Verbs harrastaa & opiskella
+     | HARRASTAN    |
+     | HARRASTAT    |
+     | HARRASTAA    |
+     | HARRASTETAAN |
+     | HARRASTATTE  |
+     | HARRASTAA    |
 
-    
+     Miten paljon harrastatte liikuntaa?
+     How much do you do sports?
+
+     Mitä sä harrastat?
+     What do you do as hobby?
+
+     Harrastan pesäpalloa ja pyöräilyä.
+     My hobbies are Finnish baseball and cycling.
+
+     | OPISKELEN   |
+     | OPISKELET   |
+     | OPISKELEE   |
+     | OPISKELLAAN |
+     | OPISKELETTE |
+     | OPISKELEE   |
+
+     Mitä sä opiskelet yliopistossa?
+     What do you study at university?
+
+     Sähkötekniikkaa.
+     Electrical engineering.
+
+     Miks(i) sä opiskelet koko ajan?
+     Why are you studing all the time?
+
+     Koska me opiskellaan suomea yhdessä?
+     When do we study Finnish together?
+**** Verbs tulla & mennä
+     | MEEN    |
+     | MEET    |
+     | MENEE   |
+     | MENNÄÄN |
+     | MEETTE  |
+     | MENEE   |
+
+     Mihin te meette?
+     Where are you going?
+
+     Meetkö tänään ulos?
+     Are you going out today?
+
+     Me mennään tänään baariin.
+     We will go to a bar today.
+
+     Jesse menee huomenna kauppaan.
+     Jesse is going to do groceries tomorrow.
+
+     | TUUN     |
+     | TUUT     |
+     | TULEE    |
+     | TULLLAAN |
+     | TUUTTE   |
+     | TULEE    |
+
+     Koska tuut?
+     When do you come?
+
+     Mihin me tullaan?
+     Where do we come?
+
+     Tuutteko tänään baariin?
+     Do you come to bar today?
+
+     Me tullaan ylihuomenna helsinkiin.
+     We are coming to Helsinki the day after tomorrow.
+
+     Me mennään rannalle.
+     We go to beach.
+
+     Jesse tulee meille.
+     Jesse is coming to my place.
+
 * Android
 ** [20/20] Android Multithreading Masterclass
    - [X] Memory Leaks in Android
