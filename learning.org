@@ -1019,6 +1019,71 @@
 
      Jesse tulee meille.
      Jesse is coming to my place.
+**** Verbs nähdä & tehdä
+     näh(d)ä = to see, to meet
+     | NÄÄN      |
+     | NÄÄT      |
+     | NÄKEE     |
+     | NÄH(D)ÄÄN |
+     | NÄÄTTE    |
+     | NÄKEE     |
+
+     Mä nään Jessen/Jesseä huomenna.
+     I will meet Jesse tomorrow.
+
+     Näh(d)äänkö huomenna?
+     Let's meet tomorrow?
+
+     Näätkö tuon auton?
+     Can you see that car?
+
+     Näätkö tuon miehen?
+     Do you see that guy?
+
+     Missä te näätte huomenna?
+     Where do you meet tomorrow?
+
+     tehdä = to do, to make
+
+     | TEEN    |
+     | TEET    |
+     | TEKEE   |
+     | TEHDÄÄN |
+     | TEETTE  |
+     | TEKEE   |
+
+     Teen töitä joka päivä paitsi viikonloppuisin.
+     I work every day except on weekends.
+
+     Teen ruokaa joskus itse.
+     I sometimes cook myself.
+
+     Me tehdään uutta videota.
+     We are making a new video.
+
+     Mitä teet tänään?
+     What do you do today?
+
+     Teh(d)äänkö me ruokaa viikonloppuna?
+     Will we cook on weekends?
+**** Verbs tykätä & haluta
+     tykätä = to like
+
+     | TYKKÄÄN   |
+     | TYKKÄÄT   |
+     | TYKKÄÄ    |
+     | TYKÄTÄÄN  |
+     | TYKKÄÄTTE |
+     | TYKKÄÄ    |
+
+     Jussi tykkää Petrasta.
+     Jussi likes Petra.
+
+     Mä tykkään tenniksestä.
+     I like tennis.
+
+     Tykkään pelata tennistä.
+     I like to play tennis.
 
 * Android
 ** [20/20] Android Multithreading Masterclass
@@ -2230,7 +2295,7 @@
                 (cons (eval (first-operand exps) env)
                       (list-of-values (rest-operands exps) env))))
         #+END_SRC
-
+        
         *Ex4.1*
         #+NAME: list-of-values-left-to-right
         #+BEGIN_SRC scheme
@@ -2356,7 +2421,6 @@
            (define (rest-operands ops) (cdr ops))
          #+END_SRC
 
-
 ******** Exercise 4.3
          #+begin_quote
          Rewrite eval so that the dispatch is done in data-directed style.
@@ -2387,6 +2451,81 @@
            (put 'eval 'cond (lambda (x y)
                               (evaln (cond->if x) y)))
          #+END_SRC
+******** Exercise 4.4
+         #+begin_quote
+         Recall the definitions of the special forms and and or from chapter 1:
+
+         *and*: The expressions are evaluated from left to right.
+                If any expression evaluates to false, false is returned;
+                any remaining expressions are not evaluated.
+                If all the expressions evaluate to true values, the value of the last expression is returned.
+                If there are no expressions then true is returned.
+         *or*: The expressions are evaluated from left to right.
+               If any expression evaluates to a true value, that value is returned;
+               any remaining expressions are not evaluated.
+               If all expressions evaluate to false, or if there are no expressions, then false is returned.
+
+         Install and and or as new special forms for the evaluator by defining appropriate syntax procedures and evaluation procedures eval-and and eval-or. Alternatively, show how to implement and and or as derived expressions.
+         #+end_quote
+
+         #+NAME: eval-ex-4-4
+         #+BEGIN_SRC scheme
+           (define (eval exp env)
+             (cond ((self-evaluating? exp) exp)
+                   ((variable? exp) (lookup-variable-value exp env))
+                   ((quoted? exp) (text-of-quotation exp))
+                   ((assignment? exp) (eval-assignment exp env))
+                   ((definition? exp) (eval-definition exp env))
+                   ((if? exp) (eval-if exp env))
+                   ((lambda? exp)
+                    (make-procedure (lambda-parameters exp)
+                                    (lambda-body exp)
+                                    env))
+                   ((begin? exp)
+                    (eval-sequence (begin-actions exp) env))
+                   ((cond? exp) (eval (cond->if exp) env))
+                   ((and? exp) (eval-and exp env))
+                   ((application? exp)
+                    (apply (eval (operator exp) env)
+                           (list-of-values (operands exp) env)))
+                   (else
+                    (error "Unknown expression type -- EVAL" exp))))
+         #+END_SRC
+
+         #+NAME: eval-and
+         #+BEGIN_SRC scheme
+           (define (and? exp) (tagged-list? exp '_and))
+
+           (define (and-predicates exp) (cdr exp))
+           (define (first-predicate predicates) (car predicates))
+           (define (rest-predicates predicates) (cdr predicates))
+           (define (no-predicate predicates) (null? predicates))
+           (define (eval-and-predicates predicates env)
+             (cond ((no-predicate predicates)
+                    true)
+                   ((no-predicate (rest-predicates predicates))
+                    (eval (first-predicate predicates) env))
+                   ((true? (eval (first-predicate predicates) env))
+                    (eval-and-predicates (rest-predicates predicates) env))
+                   (else
+                    false)))
+
+           (define (eval-and exp env)
+             (eval-and-predicates (and-predicates exp) env))
+         #+END_SRC
+
+         #+NAME:
+         #+BEGIN_SRC scheme
+         #+END_SRC
+
+         #+NAME:
+         #+BEGIN_SRC scheme
+         #+END_SRC
+
+         #+NAME:
+         #+BEGIN_SRC scheme
+         #+END_SRC
+         
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
@@ -2902,13 +3041,14 @@
        #+NAME: metacircularevaluator
        #+BEGIN_SRC scheme :tangle metacircular.scm :noweb yes
          <<apply-in-underlying-scheme>>
-         <<eval>>
+         <<eval-ex-4-4>>
          <<apply>>
          <<list-of-values>>
          <<eval-if>>
          <<eval-sequence>>
          <<eval-assignment>>
          <<eval-definition>>
+         <<eval-and>>
          <<self-evaluating-items>>
          <<variables>>
          <<quotations>>
@@ -3002,3 +3142,131 @@
       #+END_SRC
 
 
+
+*** Machine Language for the Commodore 64, 128 and Other Commodore Computers (Revised and Expanded Edition)
+**** First Concepts
+***** Microprocesser Registers
+      | PC         | 16 bits | The program counter tells where the next instruction will come from                  |
+      | A, X and Y | 8 bits  | These registers hold data                                                            |
+      | SR         |         | The status register, tells about the result of recent tests, data handling and so on |
+      | SP         |         | The stack pointer keeps track of a temporary storage area.                           |
+***** First Program Project
+      Write a program to exchange contents of $0380 and $0381.
+
+      #+begin_src asm
+          lda $0380                     ; bring in first value
+          ldx $0381                     ; bring in second value
+          sta $0381                     ; store in opposite place
+          stx $0380                     ; and again
+      #+end_src
+****** Translate this program into machine code.
+
+       Here are some machine language op codes for the instructions we may use.
+      
+       | LDA | AD |
+       | STA | 8D |
+       | LDX | AE |
+       | STX | 8E |
+       | LDY | AC |
+       | STY | 8C |
+       | BRK | 00 |
+
+       #+begin_src asm
+           AD 80 03                        ; LDA $0380
+           AE 81 03                        ; LDX $0381
+           8D 81 03                        ; STA $0381
+           8E 80 03                        ; STX $0380
+       #+end_src
+
+       Choosing a location. We will put our program into the cassette buffer, starting at address $033C (decimal 828)
+****** MLM Commands
+       | M 1000 1010 | Display memory from hex 1000 to 1010   |
+       | R           | Display registers                      |
+       | G 033C      | Go to 033C and start running a program |
+****** Entering the Program
+       In Vice, =>= is the command to write to memory.
+       #+begin_src 
+         > 033C AD 80 03 AE 81 03 8D 81 03 8E 80 03 00
+       #+end_src
+****** Preparation
+       Write to memory 11 -> $0380, 99 -> $0381.
+       #+begin_src 
+         > 0380 11 99
+       #+end_src
+
+       Run program at $033C.
+       #+begin_src asm
+         G 033C
+       #+end_src
+**** Controlling Output
+***** Prewritten subroutines
+      | Address | Name   | What it does               |
+      | $FFD2   | CHROUT | Outputs an ASCII character |
+      | $FFE4   | GETIN  | Gets an ASCII character    |
+      | $FFE1   | STOP   | Checks the RUN/STOP key    |
+***** CHROUT - The Output Subroutine
+      Address: $FFD2
+      Action: Sends a copy of the character in the A register to the output channel.
+
+      To print a letter X on the screen, we would need to follow these steps:
+      1. Bring ASCII letter X ($58) into A register
+      2. JSR to address $FFD2
+
+***** A Print Project
+      Print letter H on the screen.
+
+      Use =a= (assemble) command in MLM to input the program into memory.
+      =a 033C LDA #$48=
+
+      =JSR $FFD2=
+
+      =BRK=
+
+****** Disassembler
+       Type =d 033c= will disassemble memory into assembly language.
+****** Linking with Basic
+       To run the program, instead of typing =g 033c= from MLM, we can do it with basic =SYS 828= (828 is decimal of $033c).
+
+       Let's distinguish 3 different types of subroutine calls:
+       
+       | GOSUB | calls a BASIC subroutine from a BASIC program             |
+       | SYS   | calls a machine language subroutine from a BASIC program  |
+       | JSR   | calls a machine language subroutine from machine language |
+***** Loops
+      Lets print HELLO followed by a RETURN.
+
+      #+begin_src asm
+
+          LDX #$00
+          LDA $034A, X
+          JSR $FFD2
+          INX
+          CPX #$06
+          BNE $033E
+          RTS
+      #+end_src
+
+      Then input data:
+      #+begin_src 
+       > 034A 48 45 4c 4c 4f 0d
+      #+end_src
+
+      Now run =SYS 828= and see "HELLO" printed.
+***** Questions and Projects
+      Clear screen ($93) and print "HO HO!".
+      #+begin_src asm
+          LDX #$00
+          LDA $034A, X
+          JSR $FFD2
+          INX
+          CPX #$08
+          BNE $033E
+          RTS
+      #+end_src
+
+      Then input data:
+      #+begin_src 
+       > 034A 93 48 4F 20 48 4F 21 0D
+      #+end_src
+**** Flags, Logic and Input
+     
