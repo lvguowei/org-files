@@ -3269,4 +3269,51 @@
        > 034A 93 48 4F 20 48 4F 21 0D
       #+end_src
 **** Flags, Logic and Input
-     
+***** Z Flag
+      The Z(zero) flag should have been called the equals flag.
+      After any comparison (CPX, CPY or CMP), the Z flag wlil be
+      set to "on" if the compared values are equal; otherwise it
+      will be reset to "off".
+
+      Sometimes the Z flag checks for equal to zero, this happens
+      for every activity that may change one of the three data registers.
+      Thus, any load command will affect the Z flag status, and also
+      the increment and decrement instructions.
+
+      If the Z flag is set "on", the BEQ(branch equals) instruction
+      will branch to the specified address;otherwise it will be ignored
+      and the next instruction in the sequence will be executed.
+      If the Z flag is reset "off", the BNE instruction will branch.
+***** C Flag
+      The C(carry) flag should have been called the GE(great/equal) flag,
+      since after a comparison(CPX, CPY or CMP), the C flag is set "on"
+      if the register is greater than or equal to the value compared.
+      If the register concerned is smaller, the C flag will be reset "off".
+      
+      When used in arithmetic, the C flag is properly named, since it acts
+      as a "carry" bit between various columns as they are calculated.
+    
+      
+      If the C flag is set "on", the BCS(branch carry set) instruction will
+      branch to the specified address;otherwise it will be ignored and the
+      next instruction in sequence will be be executed.
+      If the C flag is reset "off", the BCC(branch carry clear) instruction
+      will branch.
+***** N Flag
+      The N(negative) flag is set to indicate that a register has been given
+      a value whose high bit is set.
+
+      If the N flag is set "on", the BMI(branch minus) insruction will branch
+      to the specified address;otherwise it will be ignored and the next instruction
+      in sequence will be executed. If the N flag is reset "off", the BPL(branch plus)
+      instruction will branch.
+***** V Flag
+      The V(overflow) flag should be called the SAO(signed arithmetic overflow) flag,
+      since it is affected only by addition and subtraction commands, and is meaningful
+      only if the numbers concerned are considered to be signed.
+
+      If the V flag is set "on", the BVS(branch overflow set) instruction will branch
+      to the specified address;otherwise it will be ignored.
+      If the V flag is reset "off", the BVC(branch overflow clear) instruction will branch.
+
+      
