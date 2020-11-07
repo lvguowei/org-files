@@ -3142,7 +3142,6 @@
       #+END_SRC
 
 
-
 *** Machine Language for the Commodore 64, 128 and Other Commodore Computers (Revised and Expanded Edition)
 **** First Concepts
 ***** Microprocesser Registers
@@ -3315,5 +3314,77 @@
       If the V flag is set "on", the BVS(branch overflow set) instruction will branch
       to the specified address;otherwise it will be ignored.
       If the V flag is reset "off", the BVC(branch overflow clear) instruction will branch.
+***** The Status Register
+      | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+      | N | V | - | B | D | I | Z | C |
 
-      
+      | N     | the N flag                                                                                                             |
+      | V     | the V flag                                                                                                             |
+      | Bit 5 | unused                                                                                                                 |
+      | B     | "Break" indicator. When an interrupt occurs, this signals whether or not the interrupt was caused by a BRK instruction |
+      | D     | Decimal mode indicator. Always off                                                                                     |
+      | I     | Interrupt disable.                                                                                                     |
+      | Z     | the Z flag                                                                                                             |
+      | C     | the C flag                                                                                                             |
+***** A Note on Comparison
+      If we wish to compare two bytes with each other, we must perform a
+      comparison. One value must be in a register (A, X or Y);the other must
+      either be stored in memory, or must be an immediate value we use in the instruction.
+
+      CMP - for A register
+      CPX - for X register
+      CPY - for Y register
+
+      BEQ - branches if the two bytes are equal
+      BNE - branches if the two bytes are not equal
+      BCS(branch carry set) - branches if the value in the register is greater than or equal to the other value.
+      BCC(branch carry clear) - branches if the value in the register is less than the other value.
+
+      Suppose our program wanted to test the Y register for a value equal to or less than 5.
+
+      #+begin_src asm
+          CPY #$05
+          BEQ ..somewhere
+          BCC ..somewhere
+      #+end_src
+
+      which is equal to 
+
+      #+begin_src asm
+          CPY #$06
+          BCC ..somewhere
+      #+end_src
+**** Logical Operations
+     
+     | AND | turns bits off  |
+     | ORA | turns bits on   |
+     | EOR | flips bits over |
+**** AND - Logical AND to A
+     Example: Turn off bits 4, 5 and 6 in the following value: $C7
+     |     | 11000111 |
+     |     | 10001111 |
+     | AND | 10000111 |
+     |     |  xxx     |
+     Note that the bits marked have been forced to "off", while all other bits remain unchanged.
+**** ORA - Logical OR to A
+     Example: Turn on bits 4, 5, and 6 in the following value: $C7
+     |     | 11000111 |
+     |     | 01110000 |
+     |ORA  | 11110111 |
+     |     |  xxx     |
+**** EOR - Exclusive OR to A
+     | Original A Bit | Mask | Resulting A Bit |
+     |----------------+------+-----------------|
+     |              0 |    0 |               0 |
+     |              1 |    0 |               1 |
+     |              0 |    1 |               1 |
+     |              1 |    1 |               0 |
+
+     When mask is 0, the original bit in A is left unchanged.
+     When mask is 1, the original bit in A is inverted.
+
+     Example: Invert bits 4, 5 and 6 in the following value: $C7
+     |     | 11000111 |
+     |     | 01110000 |
+     | EOR | 10110111 |
+     |     |  xxx     |
