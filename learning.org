@@ -2485,6 +2485,7 @@
                     (eval-sequence (begin-actions exp) env))
                    ((cond? exp) (eval (cond->if exp) env))
                    ((and? exp) (eval-and exp env))
+                   ((or? exp) (eval-or exp env))
                    ((application? exp)
                     (apply (eval (operator exp) env)
                            (list-of-values (operands exp) env)))
@@ -2497,16 +2498,13 @@
            (define (and? exp) (tagged-list? exp '_and))
 
            (define (and-predicates exp) (cdr exp))
-           (define (first-predicate predicates) (car predicates))
-           (define (rest-predicates predicates) (cdr predicates))
-           (define (no-predicate predicates) (null? predicates))
            (define (eval-and-predicates predicates env)
-             (cond ((no-predicate predicates)
+             (cond ((null? predicates)
                     true)
-                   ((no-predicate (rest-predicates predicates))
-                    (eval (first-predicate predicates) env))
-                   ((true? (eval (first-predicate predicates) env))
-                    (eval-and-predicates (rest-predicates predicates) env))
+                   ((null? (cdr predicates))
+                    (eval (car predicates) env))
+                   ((true? (eval (car predicates) env))
+                    (eval-and-predicates (cdr predicates) env))
                    (else
                     false)))
 
@@ -2514,8 +2512,19 @@
              (eval-and-predicates (and-predicates exp) env))
          #+END_SRC
 
-         #+NAME:
+         #+NAME: eval-or
          #+BEGIN_SRC scheme
+           (define (or? exp) (tagged-list? exp '_or))
+           (define (or-predicates exp) (cdr exp))
+           (define (eval-or-predicates predicates env)
+             (cond ((null? predicates)
+                    false)
+                    ((true? (eval (car predicates) env))
+                     (eval (car predicates) env))
+                    (else
+                     (eval-or-predicates (cdr predicates) env))))
+           (define (eval-or exp env)
+             (eval-or-predicates (or-predicates exp) env))
          #+END_SRC
 
          #+NAME:
@@ -3049,6 +3058,7 @@
          <<eval-assignment>>
          <<eval-definition>>
          <<eval-and>>
+         <<eval-or>>
          <<self-evaluating-items>>
          <<variables>>
          <<quotations>>
