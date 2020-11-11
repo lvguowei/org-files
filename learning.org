@@ -2534,7 +2534,68 @@
          #+NAME:
          #+BEGIN_SRC scheme
          #+END_SRC
-         
+******** Exercise 4.5
+         #+begin_quote
+         Scheme allows an additional syntax for cond clauses, (<test> => <recipient>).
+         If <test> evaluates to a true value, then <recipient> is evaluated.
+         Its value must be a procedure of one argument; this procedure is then invoked on the value of the <test>,
+         and the result is returned as the value of the cond expression.
+         For example
+
+         (cond ((assoc 'b '((a 1) (b 2))) => cadr)
+           (else false))
+
+         returns 2. Modify the handling of cond so that it supports this extended syntax.
+         #+end_quote
+
+         #+NAME: cond-ex-4.5
+         #+BEGIN_SRC scheme
+           (define (cond? exp)
+             (tagged-list? exp 'cond))
+
+           (define (cond-clauses exp)
+             (cdr exp))
+
+           (define (cond-predicate clause)
+             (car clause))
+
+           (define (cond-recipient clause)
+             (caddr clause))
+
+           (define (cond-recipient-clause? clause)
+             (eq? (cadr clause) '=>))
+
+           (define (cond-else-clause? clause)
+             (eq? (cond-predicate clause) 'else))
+
+           (define (make-cond-recipient clause predicate)
+             (list (cond-recipient clause) predicate))
+
+           (define (cond-actions clause)
+             (cdr clause))
+
+           (define (cond-consequent clause predicate)
+             (if (cond-recipient-clause? clause)
+                 (make-cond-recipient clause predicate)
+                 (sequence->exp (cond-actions clause))))
+
+           (define (cond->if exp)
+             (expand-clauses (cond-clauses exp)))
+
+           (define (expand-clauses clauses)
+             (if (null? clauses)
+                 false
+                 (let ((first (car clauses))
+                       (rest (cdr clauses)))
+                   (if (cond-else-clause? first)
+                       (if (null? rest)
+                           (sequence->exp (cond-actions first))
+                           (error "ELSE clause isn't last -- COND->IF" clauses))
+                       (let ((predicate (cond-predicate first)))
+                         (make-if predicate
+                                  (cond-consequent first predicate)
+                                  (expand-clauses rest)))))))
+         #+END_SRC
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
@@ -3050,7 +3111,7 @@
        #+NAME: metacircularevaluator
        #+BEGIN_SRC scheme :tangle metacircular.scm :noweb yes
          <<apply-in-underlying-scheme>>
-         <<eval-ex-4-4>>
+         <<eval>>
          <<apply>>
          <<list-of-values>>
          <<eval-if>>
@@ -3069,8 +3130,8 @@
          <<if-conditionals>>
          <<begin>>
          <<sequence->exp>>
-         <<procedure-application-ex-4.2>>
-         <<cond>>
+         <<procedure-application>>
+         <<cond-ex-4.5>>
          <<testing-of-predicates>>
          <<procedures>>
          <<env-1>>
@@ -3364,37 +3425,77 @@
           CPY #$06
           BCC ..somewhere
       #+end_src
-**** Logical Operations
+***** Logical Operations
      
-     | AND | turns bits off  |
-     | ORA | turns bits on   |
-     | EOR | flips bits over |
-**** AND - Logical AND to A
-     Example: Turn off bits 4, 5 and 6 in the following value: $C7
-     |     | 11000111 |
-     |     | 10001111 |
-     | AND | 10000111 |
-     |     |  xxx     |
-     Note that the bits marked have been forced to "off", while all other bits remain unchanged.
-**** ORA - Logical OR to A
-     Example: Turn on bits 4, 5, and 6 in the following value: $C7
-     |     | 11000111 |
-     |     | 01110000 |
-     |ORA  | 11110111 |
-     |     |  xxx     |
-**** EOR - Exclusive OR to A
-     | Original A Bit | Mask | Resulting A Bit |
-     |----------------+------+-----------------|
-     |              0 |    0 |               0 |
-     |              1 |    0 |               1 |
-     |              0 |    1 |               1 |
-     |              1 |    1 |               0 |
+      | AND | turns bits off  |
+      | ORA | turns bits on   |
+      | EOR | flips bits over |
+***** AND - Logical AND to A
+      Example: Turn off bits 4, 5 and 6 in the following value: $C7
+      |     | 11000111 |
+      |     | 10001111 |
+      | AND | 10000111 |
+      |     |  xxx     |
+      Note that the bits marked have been forced to "off", while all other bits remain unchanged.
+***** ORA - Logical OR to A
+      Example: Turn on bits 4, 5, and 6 in the following value: $C7
+      |     | 11000111 |
+      |     | 01110000 |
+      |ORA  | 11110111 |
+      |     |  xxx     |
+***** EOR - Exclusive OR to A
+      | Original A Bit | Mask | Resulting A Bit |
+      |----------------+------+-----------------|
+      |              0 |    0 |               0 |
+      |              1 |    0 |               1 |
+      |              0 |    1 |               1 |
+      |              1 |    1 |               0 |
 
-     When mask is 0, the original bit in A is left unchanged.
-     When mask is 1, the original bit in A is inverted.
+      When mask is 0, the original bit in A is left unchanged.
+      When mask is 1, the original bit in A is inverted.
 
-     Example: Invert bits 4, 5 and 6 in the following value: $C7
-     |     | 11000111 |
-     |     | 01110000 |
-     | EOR | 10110111 |
-     |     |  xxx     |
+      Example: Invert bits 4, 5 and 6 in the following value: $C7
+      |     | 11000111 |
+      |     | 01110000 |
+      | EOR | 10110111 |
+      |     |  xxx     |
+***** Input: The GETIN Subroutine
+      Subroutine: GETIN
+      Address: $FFE4
+      Action: Takes a character from the input channel and places it
+              into the A register. The input channel is the keyboard input
+              buffer unless arrangements have been made to switch it.
+
+      The character received is usually ASCII. When read from the keyboard,
+      the action is similar to a BASIC GET statement: one character will be taken
+      from the buffer; it will not be shown on the screen. If no character is available
+      from the keyboard input buffer, a value of binary zero will be put into the A register.
+      The subroutine will not wait for a key to be pressed but will always return immediately.
+
+      Registers: The A register will of course be affected. X and Y are likely
+                 to be changed;do not have data in these when calling GETIN.
+***** STOP
+      Subroutine: STOP
+      Address: $FFE1
+      Action: Check the RUN/STOP key. If RUN/STOP is being pressed at that instant,
+              the Z flag will be set when the subroutine returns.
+      Registers: A will be affected. X will be affected only if the RUN/STOP key is being pressed.
+      Status: Z signals whether RUN/STOP is being pressed.
+***** Programming Project
+      Write a subroutine that will wait for a numeric key to be pressed.
+      All other keys (except RUN/STOP) will be ignored.
+
+      #+begin_src asm
+          A 003C JSR $FFE1
+          A 003F BEQ $0351
+          A 0341 JSR $FFE4
+          A 0344 CMP #$30
+          A 0346 BCC $033C
+          A 0348 CMP #$3A
+          A 034A BCS $033C
+          A 034C JSR $FFD2
+          A 034F AND #$0F
+          A 0351 RTS
+      #+end_src
+**** Numbers, Arithmetic, and Subroutines
+     
