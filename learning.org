@@ -2295,27 +2295,27 @@
                 (cons (eval (first-operand exps) env)
                       (list-of-values (rest-operands exps) env))))
         #+END_SRC
-        
-        *Ex4.1*
-        #+NAME: list-of-values-left-to-right
-        #+BEGIN_SRC scheme
-          (define (list-of-values exps env)
-            (if (no-operands? exps)
-                '()
-                (let* ((left (eval (first-operand exps) env))
-                       (right (list-of-values (rest-operands exps) env)))
-                  (cons left right))))
-        #+END_SRC
 
-        #+NAME: list-of-values-right-to-left
-        #+BEGIN_SRC scheme
-          (define (list-of-values exps env)
-            (if (no-operands? exps)
-                '()
-                (let* ((right (list-of-values (rest-operands exps) env))
-                       (left (eval (first-operand exps) env)))
-                  (cons left right))))
-        #+END_SRC
+******** Ex4.1
+         #+NAME: list-of-values-left-to-right
+         #+BEGIN_SRC scheme
+           (define (list-of-values exps env)
+             (if (no-operands? exps)
+                 '()
+                 (let* ((left (eval (first-operand exps) env))
+                        (right (list-of-values (rest-operands exps) env)))
+                   (cons left right))))
+         #+END_SRC
+
+         #+NAME: list-of-values-right-to-left
+         #+BEGIN_SRC scheme
+           (define (list-of-values exps env)
+             (if (no-operands? exps)
+                 '()
+                 (let* ((right (list-of-values (rest-operands exps) env))
+                        (left (eval (first-operand exps) env)))
+                   (cons left right))))
+         #+END_SRC
 
 ******* Conditionals
         =Eval-if= evaluates the predicate part of an =if= expression in the given environment.
@@ -2596,6 +2596,25 @@
                                   (cond-consequent first predicate)
                                   (expand-clauses rest)))))))
          #+END_SRC
+******** Exercise 4.6
+         #+begin_quote
+         =Let= expressions are derived expressions, because
+
+           (let ((<var1> <exp1>) ... (<varn> <expn>)) <body>)
+
+         is equivalent to
+
+           ((lambda (<var1> ... <varn>)
+              <body>)
+            <exp1>
+            ...
+            <expn>)
+
+           Implement a syntactic transformation =let->combination= that reduces
+           evaluating =let= expressions to evaluating combinations of the type shown above,
+           and add the appropriate clause to =eval= to handle let expressions.
+         #+end_quote
+
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
@@ -3498,4 +3517,24 @@
           A 0351 RTS
       #+end_src
 **** Numbers, Arithmetic, and Subroutines
-     
+***** Numbers: Signed and Unsigned
+      The most important concept is that you, the programmer, choose
+      whether or not a number is to be considered a signed number
+      (for a single byte, in the decimal range -128 to +127) or an
+      unsigned integer (single-byte range 0 to 255).
+
+      It makes no difference to the computer. If you consider a number
+      signed, you may wish to test the sign using the N flag. If not, you
+      won't do such a test.
+***** Big Numbers: Multiple Bytes
+
+      |         | unsigned          | signed                   |
+      |---------+-------------------+--------------------------|
+      | 1 byte  | 0 to 255          | -128 to +127             |
+      | 2 bytes | 0 to 65535        | -32768 to +32767         |
+      | 3 bytes | 0 to 16777215     | -8388608 to + 8388607    |
+      | 4 bytes | to over 4 billion | -2 billion to +2 billion |
+
+      When signed numbers are held in multiple bytes, the sign is the highest bit of the highest byte only.
+***** Addition
+      
