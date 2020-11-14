@@ -1816,79 +1816,174 @@
      | Guowei    |             |        |
 
 * Programming Books
-*** [2/2] Read GoF Design Patterns Cover to Cover
+*** [3/3] Read GoF Design Patterns Cover to Cover
 **** DONE Chapter 1
 **** DONE Chapter 2
-**** Chapter 3
-***** DONE Builder Pattern
-      CLOSED: [2020-08-29 la 21:26]
+**** DONE Chapter 3
 *** Land of Lisp
 **** Text Advanture Game
-     Describing locations.
-     #+BEGIN_SRC lisp :results raw
-       (defparameter *nodes* '((living-room
-                                (you are in the living room. a wizard is snoring loudly on the couch.))
-                               (garden
-                                (you are in the beautiful garden. there is a well in front of you.))
-                               (attic
-                                (you are in the attic. there is a giant welding torch in the corner.))))
-       (defun describe-location (location nodes)
-         (cadr (assoc location nodes)))
-     #+END_SRC
+***** Describing locations.
+      #+BEGIN_SRC lisp :results raw
+        (defparameter *nodes* '((living-room
+                                 (you are in the living room. a wizard is snoring loudly on the couch.))
+                                (garden
+                                 (you are in the beautiful garden. there is a well in front of you.))
+                                (attic
+                                 (you are in the attic. there is a giant welding torch in the corner.))))
+        (defun describe-location (location nodes)
+          (cadr (assoc location nodes)))
+      #+END_SRC
 
-     *nodes* is called association list, or /alist/ in short.
-     #+BEGIN_SRC lisp :results raw
-       (assoc 'garden *nodes*)
-     #+END_SRC
+      #+RESULTS:
+      DESCRIBE-LOCATION
 
-     #+RESULTS:
-     (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
+      *nodes* is called association list, or /alist/ in short.
+      #+BEGIN_SRC lisp :results raw
+        (assoc 'garden *nodes*)
+      #+END_SRC
 
+      #+RESULTS:
+      (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
+***** Describing paths.
+      #+BEGIN_SRC lisp :results raw
+        (defparameter *edges* '((living-room
+                                 (garden west door)
+                                 (attic upstairs ladder))
+                                (garden
+                                 (living-room east door))
+                                (attic
+                                 (living-room downstairs ladder))))
 
+        (defun describe-path (edge)
+          `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
-     Describing paths.
-     #+BEGIN_SRC lisp :results raw
-       (defparameter *edges* '((living-room
-                                (garden west door)
-                                (attic upstairs ladder))
-                               (garden
-                                (living-room east door))
-                               (attic
-                                (living-room downstairs ladder))))
+        (defun describe-paths (location edges)
+          (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
 
-       (defun describe-path (edge)
-         `(there is a ,(caddr edge) going ,(cadr edge) from here.))
+        (describe-paths 'living-room *edges*)
+      #+END_SRC
 
-       (defun describe-paths (location edges)
-         (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+      #+RESULTS:
+      (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
+       HERE.)
+***** Describing Objects at Specific Location
+      #+BEGIN_SRC lisp :results raw
+        (defparameter *objects* '(whisky bucket frog chain))
 
-       (describe-paths 'living-room *edges*)
-     #+END_SRC
+        (defparameter *object-locations* '((whisky living-room)
+                                           (bucket living-room)
+                                           (chain garden)
+                                           (frog garden)))
 
-     #+RESULTS:
-     (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
-     HERE.)
-    
-     Describing Objects at Specific Location
-    
-     #+BEGIN_SRC lisp
-       (defparameter *objects* '(whisky bucket frog chain))
+        (defun objects-at (loc objs obj-locs)
+          (labels ((at-loc-p (obj)
+                     (eq (cadr (assoc obj obj-locs)) loc)))
+            (remove-if-not #'at-loc-p objs)))
 
-       (defparameter *object-locations* '((whisky living-room)
-                                          (bucket living-room)
-                                          (chain garden)
-                                          (frog garden)))
+        (objects-at 'living-room *objects* *object-locations*)
+      #+END_SRC
 
-       (defun objects-at (loc objs obj-locs)
-         (labels ((at-loc-p (obj)
-                    (eq (cadr (assoc obj obj-locs)) loc)))
-           (remove-if-not #'at-loc-p objs)))
+      #+RESULTS:
+      (WHISKY BUCKET)
+***** Describing Visible Objects
+      #+BEGIN_SRC lisp :results raw
+        (defun describe-objects (loc objs obj-loc)
+          (labels ((describe-obj (obj)
+                     `(you see a ,obj on the floor.)))
+            (apply #'append (mapcar #'describe-obj
+                                    (objects-at loc objs obj-loc)))))
 
-       (objects-at 'living-room *objects* *object-locations*)
-     #+END_SRC
+        (describe-objects 'living-room *objects* *object-locations*)
+      #+END_SRC
 
-     #+RESULTS:
-     | WHISKY | BUCKET |
+      #+RESULTS:
+      (YOU SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+*****  Describing It All
+      #+BEGIN_SRC lisp :results raw
+        (defparameter *location* 'living-room)
+
+        (defun look ()
+          (append (describe-location *location* *nodes*)
+                  (describe-paths *location* *edges*)
+                  (describe-objects *location* *objects* *object-locations*)))
+
+        (look)
+      #+END_SRC
+
+      #+RESULTS:
+      (YOU ARE IN THE LIVING ROOM. A WIZARD IS SNORING LOUDLY ON THE COUCH. THERE IS
+       A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM HERE. YOU
+       SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+
+       Walking Around in Our World
+      #+BEGIN_SRC lisp :results raw
+        (defun walk (direction)
+          (let ((next (find direction
+                            (cdr (assoc *location* *edges*))
+                            :key #'cadr)))
+            (if next
+                (progn (setf *location* (car next))
+                       (look))
+                '(you cannot go that way.))))
+      #+END_SRC
+
+      #+RESULTS:
+      WALK
+***** Picking Up Objects
+      #+BEGIN_SRC lisp :results raw
+        (defun pickup (object)
+          (cond ((member object
+                         (objects-at *location* *objects* *object-locations*))
+                 (push (list object 'body) *object-locations*)
+                 `(you are now carrying the ,object))
+                (t '(you cannot get that.))))
+      #+END_SRC
+
+      #+RESULTS:
+      PICKUP
+***** Checking Our Inventory
+      #+BEGIN_SRC lisp :results raw
+        (defun inventory ()
+          (cons 'items- (objects-at 'body *objects* *object-locations*)))
+      #+END_SRC
+
+      #+RESULTS:
+      INVENTORY
+***** New Game Interface
+      #+BEGIN_SRC lisp :results raw
+        (defun game-read ()
+          (let ((cmd (read-from-string
+                      (concatenate 'string "(" (read-line) ")"))))
+            (flet ((quote-it (x)
+                     (list 'quote x)))
+              (cons (car cmd) (mapcar #'quote-it (cdr cmd))))))
+
+        (defparameter *allowed-commands* '(look walk pickup inventory))
+
+        (defun game-eval (sexp)
+          (if (member (car sexp) *allowed-commands*)
+              (eval sexp)
+              '(i do not know that command.)))
+
+        (defun game-repl ()
+          (let ((cmd (game-read)))
+            (unless (eq (car cmd) 'quit)
+              (game-print (game-eval cmd))
+              (game-repl))))
+      #+END_SRC
+
+      #+RESULTS:
+      GAME-REPL
+
+      #+BEGIN_SRC lisp :results raw
+      #+END_SRC
+
+      #+BEGIN_SRC lisp :results raw
+      #+END_SRC
+
+      #+BEGIN_SRC lisp :results raw
+      #+END_SRC
+
 *** SICP
 **** Data-directed programming example: complex number system
 ***** Naive approach
@@ -3230,7 +3325,6 @@
             }
 
       #+END_SRC
-
 
 *** Machine Language for the Commodore 64, 128 and Other Commodore Computers (Revised and Expanded Edition)
 **** First Concepts
