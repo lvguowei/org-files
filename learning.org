@@ -2336,6 +2336,7 @@
                                    (lambda-body exp)
                                    env))
                   ((let? exp) (eval (let->combination exp) env))
+                  ((let*? exp) (eval (let*->nested-lets exp) env))
                   ((begin? exp)
                    (eval-sequence (begin-actions exp) env))
                   ((cond? exp) (eval (cond->if exp) env))
@@ -2731,8 +2732,40 @@
                                 (let-body exp))
                    (let-assignment-values (let-assignments exp))))
          #+END_SRC
-         
+******** Exercise 4.7
+         #+begin_quote
+         =Let*= is similar to =let=, except that the bindings of the =let= variables are performed
+         sequentially from left to right, and each binding is made in an environment in which
+         all of the preceding bindings are visible. For example
 
+         (let* ((x 3)
+           (y (+ x 2))
+           (z (+ x y 5)))
+           (* x z))
+
+          returns 39. Explain how a =let*= expression can be rewritten as a set of nested =let=
+          expressions, and write a procedure =let*->nested-lets= that performs this transformation.
+          If we have already implemented =let= (exercise 4.6) and we want to extend the evaluator
+          to handle =let*=, is it sufficient to add a clause to eval whose action is =(eval (let*->nested-lets exp) env)=
+          or must we explicitly expand =let*= in terms of non-derived expressions? 
+         #+end_quote
+
+         #+NAME: let-ex-4.7
+         #+BEGIN_SRC scheme
+
+           (define (let*? exp) (tagged-list? exp 'let*))
+           (define (let-args exp) (cadr exp))
+           (define (let-body exp) (cddr exp))
+           (define (make-let args body) (cons 'let (cons args body)))
+
+           (define (let*->nested-lets exp)
+             (define (reduce-let* args body)
+               (if (null? args)
+                   (sequence->exp body)
+                   (make-let (list (car args))
+                             (list (reduce-let* (cdr args) body)))))
+             (reduce-let* (let-args exp) (let-body exp)))
+         #+END_SRC         
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
        both programs operate on symbolic expressions. In both programs, the result of operating on a compound expression is determined by
@@ -3244,8 +3277,8 @@
        The last step to run the =driver-loop= is to run the following two lines.
        #+NAME: run
        #+BEGIN_SRC scheme
-                                                 ;(define the-global-environment (setup-environment))
-                                                 ;(driver-loop)
+         (define the-global-environment (setup-environment))
+         (driver-loop)
        #+END_SRC
        
 ****** source code
@@ -3274,6 +3307,7 @@
          <<procedure-application>>
          <<cond-ex-4.5>>
          <<let-ex-4.6>>
+         <<let-ex-4.7>>
          <<testing-of-predicates>>
          <<procedures>>
          <<env-1>>
