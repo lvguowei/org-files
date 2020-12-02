@@ -2335,6 +2335,7 @@
                    (make-procedure (lambda-parameters exp)
                                    (lambda-body exp)
                                    env))
+                  ((let? exp) (eval (let->combination exp) env))
                   ((begin? exp)
                    (eval-sequence (begin-actions exp) env))
                   ((cond? exp) (eval (cond->if exp) env))
@@ -2709,6 +2710,28 @@
            evaluating =let= expressions to evaluating combinations of the type shown above,
            and add the appropriate clause to =eval= to handle let expressions.
          #+end_quote
+
+         #+NAME: let-ex-4.6
+         #+BEGIN_SRC scheme
+           (define (let? exp) (tagged-list? exp 'let))
+
+           (define (let-assignments exp) (cadr exp))
+           (define (let-assignment-name assignment) (car assignment))
+           (define (let-assignment-value assignment) (cadr assignment))
+           (define (let-body exp) (cddr exp))
+
+           (define (let-assignment-names assignments)
+             (map let-assignment-name assignments))
+
+           (define (let-assignment-values assignments)
+             (map let-assignment-value assignments))
+
+           (define (let->combination exp)
+             (cons (make-lambda (let-assignment-names (let-assignments exp))
+                                (let-body exp))
+                   (let-assignment-values (let-assignments exp))))
+         #+END_SRC
+         
 
 ****** Representing Expressions
        The evaluator is reminiscent of the symbolic differentiation program discussed in section 2.3.2.
@@ -3158,7 +3181,11 @@
            (list (list 'car car)
                  (list 'cdr cdr)
                  (list 'cons cons)
-                 (list 'null? null?)))
+                 (list 'null? null?)
+                 (list '+ +)
+                 (list '- -)
+                 (list '* *)
+                 (list '/ /)))
 
          (define (primitive-procedure-names)
            (map car primitive-procedures))
@@ -3246,6 +3273,7 @@
          <<sequence->exp>>
          <<procedure-application>>
          <<cond-ex-4.5>>
+         <<let-ex-4.6>>
          <<testing-of-predicates>>
          <<procedures>>
          <<env-1>>
