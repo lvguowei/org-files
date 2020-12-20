@@ -3516,7 +3516,7 @@
 **** Flags, Logic and Input
 ***** Z Flag
       The Z(zero) flag should have been called the equals flag.
-      After any comparison (CPX, CPY or CMP), the Z flag wlil be
+      After any comparison (CPX, CPY or CMP), the Z flag will be
       set to "on" if the compared values are equal; otherwise it
       will be reset to "off".
 
@@ -3661,8 +3661,8 @@
       All other keys (except RUN/STOP) will be ignored.
 
       #+begin_src asm
-          A 003C JSR $FFE1
-          A 003F BEQ $0351
+          A 033C JSR $FFE1
+          A 033F BEQ $0351
           A 0341 JSR $FFE4
           A 0344 CMP #$30
           A 0346 BCC $033C
@@ -3693,4 +3693,120 @@
 
       When signed numbers are held in multiple bytes, the sign is the highest bit of the highest byte only.
 ***** Addition
+      Rules:
+      1. Before we start an addition sequence, clear the carry with CLC.
+      2. If the numbers are more than one byte in size, start at the low byte and work
+         up to the high ones. Addition will take place in the A register only;you may add the contents
+         of an address or an immediate value. The carry flag will take care of any carries.
+      3. When the addition sequence is complete, check for overflow:
+         a. if the numbers are unsigned, a set C flag indicates overflow;
+         b. if the numbers are signed, a set V flag indicates overflow;
+
+      Example:
+
+      Add 2 unsigned numbers located at address $0380 and $0381 and to place the result at $0382.
+         
+      #+begin_src asm
+          CLC
+          LDA $0380
+          ADC $0381
+          STA $0382
+      #+end_src
+      We might BCS to an overflow error routine, if desired.
+
+      Add a two-byte number located at $03A0(low) and $03A1(high) to another two-byte number
+      located at $03B0(low) and $03B1(high), placing the result at $03C0/1.
+
+      #+begin_src asm
+          CLC
+          LDA $03A0
+          ADC $03B0
+          STA $03C0
+          LDA $03A1
+          ADC $03B1
+          STA $03C1
+      #+end_src
+      Again, we might BCS to an overflow routine.
+
+      If we had two-byte signed numbers in the same locations, we'd add them
+      exactly the same way, using the same code as above. In this case, we'd check for
+      overflow by adding the instruction BVS, which would branch to an error routine.
+      The carry flag would have no meaning at the end of the addition sequence.
+***** Subtraction
+      Subtraction might be defined as "upside down" addition. The carry flag again serves to link the parts of a multibyte subtraction,
+      but its role is reversed. The carry flag is sometimes called an "inverted borrow" when used in subtraction. Before performing a subtraction,
+      we must set the C flag with SEC. If we worried about unsigned overflow, we look to confirm that the carry is set at the completion of the
+      subtraction operation. If the carry is clear, there is a problem.
+
+      Rules:
+
+      1. Before we start a subtraction, set the carry with SEC.
+      2. If the numbers are more than one byte in size, start at the
+         low byte and work up to the high ones. Subtraction will
+         take place in the A register only;you may subtract the contents of
+         an address or an immediate value. The C flag will take care of any "borrows".
+      3. When the subtraction sequence is complete, check for overflow:
+         1. if the numbers are unsigned, a clear C flag indicates overflow;
+         2. if the numbers are signed, a set V flag indicates overflow.
+
+      Example:
+
+      Subtract two unsigned numbers located at addresses $0380 and $0381 and place
+      the result at $0382.
+
+      #+begin_src asm
+          SEC
+          LDA $0380
+          SBC $0381
+          STA $0382
+      #+end_src
+      A BCC could go to an error routine.
+***** Comparing Numbers
+      If we have two unsigned numbers and wish to know which one is larger,
+      we can use the appropriate compare instruction - CMP, CPX or CPY -
+      and then check the carry flag. We've done this before. If the numbers
+      are more than one byte long, however, it's not quite so easy.
+
+      The easiest way to go about such a comparison is to subtract one
+      number from the other. You need not keep the result; all you care
+      about is the carry flag when the subtraction is complete. If the
+      C flag is set, the first number is greater than or equal to the second
+      number. Why? Because carry set indicated that the unsigned subtraction
+      was legal; we have subtracted the two numbers and have obtained
+      a positive (unsigned) result. On the other hand, if the C flag
+      ends up clear, this would mean that the first number is less than
+      the second. The subtraction couldn't take place correctly since
+      the result - a negative number - cannot be represented in unsigned
+      arithmetic.
+***** Left Shift: Multiplication by Two
+
+      - ASL (arithmetic shift left)
+        - A zero bit is pushed into the low side of the byte
+        - All bits move left one position
+        - The bit that "falls out" of the byte moves into the carry.
+
+      - ROL (rotate left)
+        - Works exactly like ASL
+        - Except that the carry bit is pushed into the next byte.
+
+      Thus, we can hook two or more bytes together. If they hold a single
+      multibyte number, we can double that number by starting at the
+      low-order end. We ASL the first value and ROL the remainder.
       
+***** Multiplication
+      To multiply by ten, you first multiply by two;then multiply by two again.
+      At this point, we have the original number times four. Now, add
+      the original number, giving the original number times five.
+      Multiply by two one last time and you've got it.
+
+***** Right Shift and Rotate: Dividing by Two
+      LSR(logical shift right) puts a zero into the left(high-order) bit,
+      moves all the bits over to the right, and drops the leftover bit
+      into carry.
+      ROR(rotate right) puts the carry bit into the left bit, moves
+      everything right, and drops the leftover bit into the carry once
+      again. At the end of a right-shifting sequence, the final carry
+      bit might be considered a remainder after dividing by two.
+
+**** Address Modes
+     
