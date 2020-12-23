@@ -1836,6 +1836,8 @@
 
       #+RESULTS:
       DESCRIBE-LOCATION
+      DESCRIBE-LOCATION
+      DESCRIBE-LOCATION
 
       *nodes* is called association list, or /alist/ in short.
       #+BEGIN_SRC lisp :results raw
@@ -1843,6 +1845,8 @@
       #+END_SRC
 
       #+RESULTS:
+      (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
+      (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
       (GARDEN (YOU ARE IN THE BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU.))
 ***** Describing paths.
       #+BEGIN_SRC lisp :results raw
@@ -1866,6 +1870,10 @@
       #+RESULTS:
       (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
        HERE.)
+      (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
+       HERE.)
+      (THERE IS A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM
+       HERE.)
 ***** Describing Objects at Specific Location
       #+BEGIN_SRC lisp :results raw
         (defparameter *objects* '(whisky bucket frog chain))
@@ -1885,6 +1893,8 @@
 
       #+RESULTS:
       (WHISKY BUCKET)
+      (WHISKY BUCKET)
+      (WHISKY BUCKET)
 ***** Describing Visible Objects
       #+BEGIN_SRC lisp :results raw
         (defun describe-objects (loc objs obj-loc)
@@ -1898,7 +1908,9 @@
 
       #+RESULTS:
       (YOU SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
-*****  Describing It All
+      (YOU SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+      (YOU SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+***** Describing It All
       #+BEGIN_SRC lisp :results raw
         (defparameter *location* 'living-room)
 
@@ -1911,6 +1923,12 @@
       #+END_SRC
 
       #+RESULTS:
+      (YOU ARE IN THE LIVING ROOM. A WIZARD IS SNORING LOUDLY ON THE COUCH. THERE IS
+       A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM HERE. YOU
+       SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+      (YOU ARE IN THE LIVING ROOM. A WIZARD IS SNORING LOUDLY ON THE COUCH. THERE IS
+       A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM HERE. YOU
+       SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
       (YOU ARE IN THE LIVING ROOM. A WIZARD IS SNORING LOUDLY ON THE COUCH. THERE IS
        A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM HERE. YOU
        SEE A WHISKY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
@@ -1929,6 +1947,8 @@
 
       #+RESULTS:
       WALK
+      WALK
+      WALK
 ***** Picking Up Objects
       #+BEGIN_SRC lisp :results raw
         (defun pickup (object)
@@ -1941,6 +1961,8 @@
 
       #+RESULTS:
       PICKUP
+      PICKUP
+      PICKUP
 ***** Checking Our Inventory
       #+BEGIN_SRC lisp :results raw
         (defun inventory ()
@@ -1948,6 +1970,8 @@
       #+END_SRC
 
       #+RESULTS:
+      INVENTORY
+      INVENTORY
       INVENTORY
 ***** New Game Interface
       #+BEGIN_SRC lisp :results raw
@@ -1965,6 +1989,26 @@
               (eval sexp)
               '(i do not know that command.)))
 
+        (defun tweak-text (lst caps lit)
+          (when lst
+            (let ((item (car lst))
+                  (rest (cdr lst)))
+              (cond ((eq item #\space) (cons item (tweak-text rest caps lit)))
+                    ((member item '(#\! #\? #\.)) (cons item (tweak-text rest t lit)))
+                    ((eq item #\") (tweak-text rest caps (not lit)))
+                    (lit (cons item (tweak-text nil lit)))
+                    ((or caps lit) (cons (char-upcase item) (tweak-text rest nil lit)))
+                    (t (cons (char-downcase item) (tweak-text rest nil nil)))))))
+
+        (defun game-print (lst)
+          (princ (coerce (tweak-text (coerce (string-trim "() "
+                                                          (prin1-to-string lst))
+                                             'list)
+                                     t
+                                     nil)
+                         'string))
+          (fresh-line))
+
         (defun game-repl ()
           (let ((cmd (game-read)))
             (unless (eq (car cmd) 'quit)
@@ -1974,15 +2018,29 @@
 
       #+RESULTS:
       GAME-REPL
+      GAME-REPL
+      GAME-REPL
 
       #+BEGIN_SRC lisp :results raw
       #+END_SRC
 
-      #+BEGIN_SRC lisp :results raw
-      #+END_SRC
+      #+RESULTS:
+      NIL
+      NIL
 
       #+BEGIN_SRC lisp :results raw
       #+END_SRC
+
+      #+RESULTS:
+      NIL
+      NIL
+
+      #+BEGIN_SRC lisp :results raw
+      #+END_SRC
+
+      #+RESULTS:
+      NIL
+      NIL
 
 *** SICP
 **** Data-directed programming example: complex number system
@@ -3809,4 +3867,55 @@
       bit might be considered a remainder after dividing by two.
 
 **** Address Modes
-     
+     Computer instructions come in two parts: the instruction itself, or
+     /op/ code, and the address, or /operand/.
+
+     The term /address mode/ refers to the way in which the instruction
+     obtains information.
+
+***** No Address: Implied Mode
+      Instructions such as =INX= (increment X), =BRK= (break), and
+      =TAY= (transfer A to Y) need no address;they make no memory
+      reference and are complete in themselves. Such instructions occupy
+      one byte of memory.
+      
+****** The Do-Nothing Instruction: NOP
+       =NOP= (no operation) is an instruction that does nothing.
+       Its op code is =$EA=. 
+
+***** No Address: Accumulator Mode     
+      We have observed that the shift and rotate instructions, ASL,
+      ROL, LSR, and ROR, allow data manipulation in either the A
+      register or directly in memory. When we want to use the A register
+      , or /accumulator/, you should note this fact as you code your
+      program. For example, you would write =ASL A= or sometimes just =ASL=.
+
+      Where accumulator mode addressing is used, it has the same
+      characteristics as implied addressing: the whole instruction fits
+      into one byte.
+
+      Where the shift/rotate instruction refers to a memory location, an
+      address will of course be needed. These address modes will be
+      described later.
+
+      Other than the shift and rotate instructions, there is one other
+      set of instructions that manipulates memory directly. You may recall
+      =INX=, =INY=, =DEX=, =DEY= increment or decrement an index register.
+
+      =INC= (increment memory) adds one to any memory location. =DEC=
+      (decrement memory) subtracts one from any memory location.
+
+      
+***** Not Quite an Address: Immediate Mode
+      Coding such as =LDA #$34= does not reference a memory address.
+      Instead, it designates a specific value. An instruction with
+      immediate addressing takes up two bytes: one for the op code
+      and the second for the immediate value.
+
+***** A Single Address: Absolute Mode
+      An instruction might specify any address within memory - from
+      $0000 to $FFFF - and handle information from that address.
+      Giving the full address is called /absolute addressing/;if you like,
+      you can deal with information absolutely anywhere in memory.
+
+****** Zero-Page Mode
