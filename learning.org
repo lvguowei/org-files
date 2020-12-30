@@ -2041,7 +2041,7 @@
       #+RESULTS:
       NIL
       NIL
-
+**** Coding Beyond Basic Lists
 *** SICP
 **** Data-directed programming example: complex number system
 ***** Naive approach
@@ -3919,3 +3919,65 @@
       you can deal with information absolutely anywhere in memory.
 
 ****** Zero-Page Mode
+       A hexadecimal address such as $0381 is sixteen bits long and
+       takes up two bytes of memory. We call the high byte ($03), the
+       "memory page" of the address. Addresses such as $004C and $00F7
+       are in page zero. We may write $4C and $F7 for short.
+
+****** A Range of 256 Addresses: Absolute, Indexed Mode
+       We give an absolute address, and then indicate that the contents
+       of X or Y should be added to this address to give an /effective address/.
+       
+       Indexing is used only for data handling;it's available for such
+       activities as load and store, but not for branching or jump.
+
+       An instruction using absolute, indexed addressing can reach up
+       to 256 locations. Register X and Y may hold values from 0 to 255,
+       so that the effective address may range from the address given 
+       to 255 locations higher.
+
+       Indexing always increases the address;there is no such thing as
+       a negative index when used with an absolute address.
+
+****** All of Zero Page: Zero-Page, Indexed
+       Zero-page, indexed addressing seems at first glance to be similar
+       to the absolute, indexed mode. The address given (this time in
+       zero-page) has the contents of the selected index added to it.
+       But there's a difference: in this case, the effective address
+       can never leave zero page.
+
+       This mode usually uses the X register; only two instructions, LXD
+       and STX, use the Y register for zero-page, indexed addressing.
+       In either case, the index is added to the zero-page address; if 
+       the total goes beyond zero page, the address "wraps around". As
+       an example, if an instruction is coded =LDA $E0, X=, and the X
+       register contains 50 at the time of execution, the effective
+       address will be $0030. The total($E0 + $50 or $130) will be trimed
+       back into zero page.
+
+       On Commodore machines, zero page is fairly well occupied. There's
+       limited opportunity to use zero-page, indexed addressing.
+
+*** Grokking Algorithms
+**** Binary Search
+#+begin_src python :results output
+
+  def binary_search(list, item):
+      low = 0
+      high = len(list) - 1
+      while (low <= high):
+          mid = (low + high) // 2
+          if (list[mid] == item):
+              return mid
+          else:
+              if (list[mid] > item):
+                  high = mid - 1
+              else:
+                  low = mid + 1
+      return None
+
+  print(binary_search([1, 2, 3, 4, 5], 3))
+#+end_src
+
+#+RESULTS:
+: 2
