@@ -1,5 +1,10 @@
 program METROPOLITANCLUB (OUTPUT);
 
+{ -- This programme examines the clues given for the murder
+  -- at the Metropolitan Club. The tree arrays HAIR, ATTIRE, and
+  -- ROOM are used to establish the facts as they are determined.
+  -- The programme outputs the name of the murderer. }
+
 const
    UNKNOWN    = 0;
    RED        = 1; BLACK = 2; GREY = 3; BROWN = 4;
